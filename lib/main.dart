@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+const BASE_URL = 'https://stormy-woodland-10710.herokuapp.com/api/notes';
+
 void main() {
   runApp(MyApp());
 }
