@@ -6,7 +6,7 @@ part 'note.g.dart';
 @immutable
 @JsonSerializable()
 class Note {
-  final String id;
+  final int id;
   final String body;
   final String title;
   @JsonKey(name: 'date_created')
@@ -15,5 +15,6 @@ class Note {
   Note(this.body, this.dateCreated, [this.id, this.title]);
 
   factory Note.fromJson(Map<String, dynamic> json) => _$NoteFromJson(json);
+
   Map<String, dynamic> toJson() => _$NoteToJson(this);
 }

@@ -9,12 +9,12 @@ import '../../main.dart';
 part 'notes_client.g.dart';
 
 @RestApi(baseUrl: BASE_URL)
-abstract class NotesClient {
+abstract class NotesApiClient {
   static const _NOTES_ENDPOINT = '/notes';
   static const _NOTES_WITH_ID_ENDPOINT = '/notes/{id}';
   static const _AUTH_HEADER = 'Authentication';
 
-  factory NotesClient(Dio dio, {String baseUrl}) = _NotesClient;
+  factory NotesApiClient(Dio dio, {String baseUrl}) = _NotesApiClient;
 
   @GET(_NOTES_ENDPOINT)
   Future<List<Note>> getNotes(@Header(_AUTH_HEADER) String authToken);
@@ -41,5 +41,6 @@ abstract class NotesClient {
   @DELETE(_NOTES_WITH_ID_ENDPOINT)
   Future<void> deleteNote(
     @Header(_AUTH_HEADER) String authToken,
+    @Path('id') int id,
   );
 }

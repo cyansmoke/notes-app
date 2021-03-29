@@ -6,8 +6,8 @@ part of 'notes_client.dart';
 // RetrofitGenerator
 // **************************************************************************
 
-class _NotesClient implements NotesClient {
-  _NotesClient(this._dio, {this.baseUrl}) {
+class _NotesApiClient implements NotesApiClient {
+  _NotesApiClient(this._dio, {this.baseUrl}) {
     ArgumentError.checkNotNull(_dio, '_dio');
     baseUrl ??= 'https://stormy-woodland-10710.herokuapp.com/api/notes';
   }
@@ -30,7 +30,9 @@ class _NotesClient implements NotesClient {
             extra: _extra,
             baseUrl: baseUrl),
         data: _data);
-    var value = _result.data.map((dynamic i) => Note.fromJson(i as Map<String, dynamic>)).toList();
+    var value = _result.data
+        .map((dynamic i) => Note.fromJson(i as Map<String, dynamic>))
+        .toList();
     return value;
   }
 
@@ -95,12 +97,13 @@ class _NotesClient implements NotesClient {
   }
 
   @override
-  Future<void> deleteNote(authToken) async {
+  Future<void> deleteNote(authToken, id) async {
     ArgumentError.checkNotNull(authToken, 'authToken');
+    ArgumentError.checkNotNull(id, 'id');
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _data = <String, dynamic>{};
-    await _dio.request<void>('/notes/{id}',
+    await _dio.request<void>('/notes/$id',
         queryParameters: queryParameters,
         options: RequestOptions(
             method: 'DELETE',

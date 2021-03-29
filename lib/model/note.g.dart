@@ -10,7 +10,7 @@ Note _$NoteFromJson(Map<String, dynamic> json) {
   return Note(
     json['body'] as String,
     json['date_created'] as String,
-    json['id'] as String,
+    json['id'] as int,
     json['title'] as String,
   );
 }

@@ -9,7 +9,8 @@ part of 'notes.dart';
 Notes _$NotesFromJson(Map<String, dynamic> json) {
   return Notes(
     (json['data'] as List)
-        ?.map((e) => e == null ? null : Note.fromJson(e as Map<String, dynamic>))
+        ?.map(
+            (e) => e == null ? null : Note.fromJson(e as Map<String, dynamic>))
         ?.toList(),
   );
 }

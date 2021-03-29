@@ -15,6 +15,11 @@ dependencies:
   json_annotation: 3.1.0
   dio: 3.0.10
 
+  #bloc
+  bloc: ^6.0.0
+  flutter_bloc: ^6.0.0
+
+  #ui
   cupertino_icons: 1.0.0
 
 dev_dependencies:
