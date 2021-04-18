@@ -9,7 +9,7 @@ part of 'user_client.dart';
 class _UserApiClient implements UserApiClient {
   _UserApiClient(this._dio, {this.baseUrl}) {
     ArgumentError.checkNotNull(_dio, '_dio');
-    baseUrl ??= 'https://stormy-woodland-10710.herokuapp.com/api/';
+    baseUrl ??= 'https://stormy-woodland-10710.herokuapp.com/';
   }
 
   final Dio _dio;

@@ -19,15 +19,22 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="62672aa1-0107-4668-8c3d-7aaf51d1acb8" name="Default Changelist" comment="added notes models and start create logic">
+    <list default="true" id="62672aa1-0107-4668-8c3d-7aaf51d1acb8" name="Default Changelist" comment="added models and logic layer">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/android/.idea/caches/build_file_checksums.ser" beforeDir="false" afterPath="$PROJECT_DIR$/android/.idea/caches/build_file_checksums.ser" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/.idea/libraries/Gradle__io_flutter_arm64_v8a_debug_1_0_0_2c956a31c0a3d350827aee6c56bb63337c5b4e6e.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/.idea/libraries/Gradle__io_flutter_armeabi_v7a_debug_1_0_0_2c956a31c0a3d350827aee6c56bb63337c5b4e6e.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/.idea/libraries/Gradle__io_flutter_flutter_embedding_debug_1_0_0_2c956a31c0a3d350827aee6c56bb63337c5b4e6e.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/.idea/libraries/Gradle__io_flutter_x86_64_debug_1_0_0_2c956a31c0a3d350827aee6c56bb63337c5b4e6e.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/.idea/libraries/Gradle__io_flutter_x86_debug_1_0_0_2c956a31c0a3d350827aee6c56bb63337c5b4e6e.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/.idea/modules/app/android.app.iml" beforeDir="false" afterPath="$PROJECT_DIR$/android/.idea/modules/app/android.app.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ios/Flutter/.last_build_id" beforeDir="false" afterPath="$PROJECT_DIR$/ios/Flutter/.last_build_id" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/api/notes/notes_client.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/api/notes/notes_client.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/api/notes/notes_client.g.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/api/notes/notes_client.g.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/api/user/user_client.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/api/user/user_client.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/api/user/user_client.g.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/api/user/user_client.g.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/main.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/repo/notes_repo.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/repo/notes_repo.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/repo/user_repo.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/repo/user_repo.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/ui/screens/auth/auth_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/ui/screens/auth/auth_screen.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -100,7 +107,14 @@
       <option name="project" value="LOCAL" />
       <updated>1616999067035</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="added models and logic layer">
+      <created>1618759772734</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1618759772735</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -118,7 +132,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="added notes api" />
     <MESSAGE value="added notes models and start create logic" />
-    <option name="LAST_COMMIT_MESSAGE" value="added notes models and start create logic" />
+    <MESSAGE value="added models and logic layer" />
+    <option name="LAST_COMMIT_MESSAGE" value="added models and logic layer" />
   </component>
   <component name="WindowStateProjectService">
     <state x="360" y="222" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1616949183178">
@@ -133,29 +148,45 @@
       <screen x="0" y="23" width="1792" height="1013" />
     </state>
     <state x="100" y="100" width="1592" height="920" key="AVDManager/0.23.1792.1013@0.23.1792.1013" timestamp="1616944119330" />
-    <state width="875" height="318" key="GridCell.Tab.0.bottom" timestamp="1616999090104">
+    <state width="1750" height="318" key="GridCell.Tab.0.bottom" timestamp="1618764504746">
       <screen x="0" y="0" width="1792" height="1120" />
     </state>
-    <state width="875" height="318" key="GridCell.Tab.0.bottom/0.0.1792.1120@0.0.1792.1120" timestamp="1616999090104" />
-    <state width="875" height="318" key="GridCell.Tab.0.center" timestamp="1616999090103">
+    <state width="1750" height="318" key="GridCell.Tab.0.bottom/0.0.1792.1120@0.0.1792.1120" timestamp="1618764504746" />
+    <state width="1750" height="318" key="GridCell.Tab.0.center" timestamp="1618764504745">
       <screen x="0" y="0" width="1792" height="1120" />
     </state>
-    <state width="875" height="318" key="GridCell.Tab.0.center/0.0.1792.1120@0.0.1792.1120" timestamp="1616999090103" />
-    <state width="875" height="318" key="GridCell.Tab.0.left" timestamp="1616999090102">
+    <state width="1750" height="318" key="GridCell.Tab.0.center/0.0.1792.1120@0.0.1792.1120" timestamp="1618764504745" />
+    <state width="1750" height="318" key="GridCell.Tab.0.left" timestamp="1618764504744">
       <screen x="0" y="0" width="1792" height="1120" />
     </state>
-    <state width="875" height="318" key="GridCell.Tab.0.left/0.0.1792.1120@0.0.1792.1120" timestamp="1616999090102" />
-    <state width="875" height="318" key="GridCell.Tab.0.right" timestamp="1616999090103">
+    <state width="1750" height="318" key="GridCell.Tab.0.left/0.0.1792.1120@0.0.1792.1120" timestamp="1618764504744" />
+    <state width="1750" height="318" key="GridCell.Tab.0.right" timestamp="1618764504745">
       <screen x="0" y="0" width="1792" height="1120" />
     </state>
-    <state width="875" height="318" key="GridCell.Tab.0.right/0.0.1792.1120@0.0.1792.1120" timestamp="1616999090103" />
-    <state x="496" y="287" key="Vcs.Push.Dialog.v2" timestamp="1616999068852">
+    <state width="1750" height="318" key="GridCell.Tab.0.right/0.0.1792.1120@0.0.1792.1120" timestamp="1618764504745" />
+    <state x="496" y="287" key="Vcs.Push.Dialog.v2" timestamp="1618759779309">
       <screen x="0" y="0" width="1792" height="1120" />
     </state>
-    <state x="496" y="287" key="Vcs.Push.Dialog.v2/0.0.1792.1120@0.0.1792.1120" timestamp="1616999068852" />
-    <state x="561" y="251" width="670" height="676" key="search.everywhere.popup" timestamp="1618757936989">
+    <state x="496" y="287" key="Vcs.Push.Dialog.v2/0.0.1792.1120@0.0.1792.1120" timestamp="1618759779309" />
+    <state x="561" y="251" width="670" height="676" key="search.everywhere.popup" timestamp="1618762603098">
       <screen x="0" y="0" width="1792" height="1120" />
     </state>
-    <state x="561" y="251" width="670" height="676" key="search.everywhere.popup/0.0.1792.1120@0.0.1792.1120" timestamp="1618757936989" />
+    <state x="561" y="251" width="670" height="676" key="search.everywhere.popup/0.0.1792.1120@0.0.1792.1120" timestamp="1618762603098" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="Dart">
+          <url>file://$USER_HOME$/.pub-cache/hosted/pub.dartlang.org/dio-3.0.10/lib/src/interceptor.dart</url>
+          <line>47</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="Dart">
+          <url>file://$USER_HOME$/.pub-cache/hosted/pub.dartlang.org/dio-3.0.10/lib/src/transformer.dart</url>
+          <line>64</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

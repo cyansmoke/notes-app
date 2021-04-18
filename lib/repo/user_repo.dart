@@ -1,4 +1,5 @@
 import 'package:notes/api/user/user_client.dart';
+import 'package:notes/model/token.dart';
 import 'package:notes/model/user.dart';
 
 class UserRepository {
@@ -20,7 +21,12 @@ class UserRepository {
   }
 
   Future<String> _authUser(User user) async {
-    final newToken = await _apiClient.signIn(user);
+    Token newToken;
+    if (user.email == null) {
+      newToken = await _apiClient.signIn(user);
+    } else {
+      newToken = await _apiClient.signUp(user);
+    }
     _token = newToken.token;
     return _token;
   }
