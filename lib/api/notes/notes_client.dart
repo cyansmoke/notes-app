@@ -10,8 +10,8 @@ part 'notes_client.g.dart';
 
 @RestApi(baseUrl: BASE_URL)
 abstract class NotesApiClient {
-  static const _NOTES_ENDPOINT = '/notes';
-  static const _NOTES_WITH_ID_ENDPOINT = '/notes/{id}';
+  static const _NOTES_ENDPOINT = 'notes';
+  static const _NOTES_WITH_ID_ENDPOINT = '$_NOTES_ENDPOINT/{id}';
   static const _AUTH_HEADER = 'Authentication';
 
   factory NotesApiClient(Dio dio, {String baseUrl}) = _NotesApiClient;

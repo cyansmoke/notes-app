@@ -9,7 +9,7 @@ part of 'notes_client.dart';
 class _NotesApiClient implements NotesApiClient {
   _NotesApiClient(this._dio, {this.baseUrl}) {
     ArgumentError.checkNotNull(_dio, '_dio');
-    baseUrl ??= 'https://stormy-woodland-10710.herokuapp.com/api/notes';
+    baseUrl ??= 'https://stormy-woodland-10710.herokuapp.com/api/';
   }
 
   final Dio _dio;
@@ -22,7 +22,7 @@ class _NotesApiClient implements NotesApiClient {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _data = <String, dynamic>{};
-    final _result = await _dio.request<List<dynamic>>('/notes',
+    final _result = await _dio.request<List<dynamic>>('notes',
         queryParameters: queryParameters,
         options: RequestOptions(
             method: 'GET',
@@ -43,7 +43,7 @@ class _NotesApiClient implements NotesApiClient {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _data = <String, dynamic>{};
-    final _result = await _dio.request<Map<String, dynamic>>('/notes/$id',
+    final _result = await _dio.request<Map<String, dynamic>>('notes/$id',
         queryParameters: queryParameters,
         options: RequestOptions(
             method: 'GET',
@@ -65,7 +65,7 @@ class _NotesApiClient implements NotesApiClient {
     final _data = <String, dynamic>{};
     _data.addAll(note?.toJson() ?? <String, dynamic>{});
     _data.removeWhere((k, v) => v == null);
-    await _dio.request<void>('/notes/$id',
+    await _dio.request<void>('notes/$id',
         queryParameters: queryParameters,
         options: RequestOptions(
             method: 'PUT',
@@ -85,7 +85,7 @@ class _NotesApiClient implements NotesApiClient {
     final _data = <String, dynamic>{};
     _data.addAll(note?.toJson() ?? <String, dynamic>{});
     _data.removeWhere((k, v) => v == null);
-    await _dio.request<void>('/notes',
+    await _dio.request<void>('notes',
         queryParameters: queryParameters,
         options: RequestOptions(
             method: 'POST',
@@ -103,7 +103,7 @@ class _NotesApiClient implements NotesApiClient {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _data = <String, dynamic>{};
-    await _dio.request<void>('/notes/$id',
+    await _dio.request<void>('notes/$id',
         queryParameters: queryParameters,
         options: RequestOptions(
             method: 'DELETE',

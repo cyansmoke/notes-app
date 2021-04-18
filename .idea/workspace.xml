@@ -19,23 +19,15 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="62672aa1-0107-4668-8c3d-7aaf51d1acb8" name="Default Changelist" comment="added notes api">
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" afterDir="false" />
+    <list default="true" id="62672aa1-0107-4668-8c3d-7aaf51d1acb8" name="Default Changelist" comment="added notes models and start create logic">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/android/.idea/caches/build_file_checksums.ser" beforeDir="false" afterPath="$PROJECT_DIR$/android/.idea/caches/build_file_checksums.ser" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/api/notes/notes_client.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/api/notes/notes_client.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/api/notes/notes_client.g.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/api/notes/notes_client.g.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/api/user/user_client.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/api/user/user_client.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/api/user/user_client.g.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/api/user/user_client.g.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/main.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/model/note.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/model/note.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/model/note.g.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/model/note.g.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/model/notes.g.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/model/notes.g.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/widget_test.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/favicon.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/icons/Icon-192.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/icons/Icon-512.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/manifest.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/repo/notes_repo.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/repo/notes_repo.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -101,7 +93,14 @@
       <option name="project" value="LOCAL" />
       <updated>1616948823399</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="added notes models and start create logic">
+      <created>1616999067035</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1616999067035</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -114,43 +113,49 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="added notes api" />
-    <option name="LAST_COMMIT_MESSAGE" value="added notes api" />
+    <MESSAGE value="added notes models and start create logic" />
+    <option name="LAST_COMMIT_MESSAGE" value="added notes models and start create logic" />
   </component>
   <component name="WindowStateProjectService">
     <state x="360" y="222" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1616949183178">
       <screen x="0" y="0" width="1792" height="1120" />
     </state>
     <state x="360" y="222" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1792.1120@0.0.1792.1120" timestamp="1616949183178" />
+    <state x="709" y="283" key="#com.intellij.ide.util.MemberChooser" timestamp="1618757602362">
+      <screen x="0" y="0" width="1792" height="1120" />
+    </state>
+    <state x="709" y="283" key="#com.intellij.ide.util.MemberChooser/0.0.1792.1120@0.0.1792.1120" timestamp="1618757602362" />
     <state x="100" y="100" width="1592" height="920" key="AVDManager" timestamp="1616944119330">
       <screen x="0" y="23" width="1792" height="1013" />
     </state>
     <state x="100" y="100" width="1592" height="920" key="AVDManager/0.23.1792.1013@0.23.1792.1013" timestamp="1616944119330" />
-    <state width="875" height="318" key="GridCell.Tab.0.bottom" timestamp="1616945551787">
+    <state width="875" height="318" key="GridCell.Tab.0.bottom" timestamp="1616999090104">
       <screen x="0" y="0" width="1792" height="1120" />
     </state>
-    <state width="875" height="318" key="GridCell.Tab.0.bottom/0.0.1792.1120@0.0.1792.1120" timestamp="1616945551787" />
-    <state width="875" height="318" key="GridCell.Tab.0.center" timestamp="1616945551786">
+    <state width="875" height="318" key="GridCell.Tab.0.bottom/0.0.1792.1120@0.0.1792.1120" timestamp="1616999090104" />
+    <state width="875" height="318" key="GridCell.Tab.0.center" timestamp="1616999090103">
       <screen x="0" y="0" width="1792" height="1120" />
     </state>
-    <state width="875" height="318" key="GridCell.Tab.0.center/0.0.1792.1120@0.0.1792.1120" timestamp="1616945551786" />
-    <state width="875" height="318" key="GridCell.Tab.0.left" timestamp="1616945551786">
+    <state width="875" height="318" key="GridCell.Tab.0.center/0.0.1792.1120@0.0.1792.1120" timestamp="1616999090103" />
+    <state width="875" height="318" key="GridCell.Tab.0.left" timestamp="1616999090102">
       <screen x="0" y="0" width="1792" height="1120" />
     </state>
-    <state width="875" height="318" key="GridCell.Tab.0.left/0.0.1792.1120@0.0.1792.1120" timestamp="1616945551786" />
-    <state width="875" height="318" key="GridCell.Tab.0.right" timestamp="1616945551787">
+    <state width="875" height="318" key="GridCell.Tab.0.left/0.0.1792.1120@0.0.1792.1120" timestamp="1616999090102" />
+    <state width="875" height="318" key="GridCell.Tab.0.right" timestamp="1616999090103">
       <screen x="0" y="0" width="1792" height="1120" />
     </state>
-    <state width="875" height="318" key="GridCell.Tab.0.right/0.0.1792.1120@0.0.1792.1120" timestamp="1616945551787" />
-    <state x="496" y="287" key="Vcs.Push.Dialog.v2" timestamp="1616948826255">
+    <state width="875" height="318" key="GridCell.Tab.0.right/0.0.1792.1120@0.0.1792.1120" timestamp="1616999090103" />
+    <state x="496" y="287" key="Vcs.Push.Dialog.v2" timestamp="1616999068852">
       <screen x="0" y="0" width="1792" height="1120" />
     </state>
-    <state x="496" y="287" key="Vcs.Push.Dialog.v2/0.0.1792.1120@0.0.1792.1120" timestamp="1616948826255" />
-    <state x="561" y="251" width="670" height="676" key="search.everywhere.popup" timestamp="1616951820735">
+    <state x="496" y="287" key="Vcs.Push.Dialog.v2/0.0.1792.1120@0.0.1792.1120" timestamp="1616999068852" />
+    <state x="561" y="251" width="670" height="676" key="search.everywhere.popup" timestamp="1618757936989">
       <screen x="0" y="0" width="1792" height="1120" />
     </state>
-    <state x="561" y="251" width="670" height="676" key="search.everywhere.popup/0.0.1792.1120@0.0.1792.1120" timestamp="1616951820735" />
+    <state x="561" y="251" width="670" height="676" key="search.everywhere.popup/0.0.1792.1120@0.0.1792.1120" timestamp="1618757936989" />
   </component>
 </project>
