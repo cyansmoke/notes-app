@@ -7,7 +7,7 @@ class UserRepository {
 
   final UserApiClient _apiClient;
 
-  String get token => _token;
+  String get token => 'Bearer $_token';
   String _token;
 
   Future<String> signInUser(String login, String password) async {

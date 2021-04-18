@@ -25,6 +25,9 @@ class LogInterceptor implements Interceptor {
     log(options.data.toString());
     log(options.baseUrl + options.path);
     log(options.method);
+    options.headers.forEach((key, value) {
+      log('Header $key to $value ');
+    });
     return options;
   }
 

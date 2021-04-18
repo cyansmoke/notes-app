@@ -54,7 +54,6 @@ class _AuthScreenState extends State<AuthScreen> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       TextField(
-                        onAppPrivateCommand: ,
                         controller: loginTextController,
                         decoration: InputDecoration(
                           labelText: 'Login',
@@ -130,15 +129,17 @@ class _AuthScreenState extends State<AuthScreen> {
                                   ),
                                 ),
                               ),
-                              onPressed: () {
-                                if (_isRegisterState) {
-                                  _authCubit.signUpUser(loginTextController.text,
-                                      passwordTextController.text, emailTextController.text);
-                                } else {
-                                  _authCubit.signInUser(
-                                      loginTextController.text, passwordTextController.text);
-                                }
-                              },
+                              onPressed: state is AuthLoadingState
+                                  ? null
+                                  : () {
+                                      if (_isRegisterState) {
+                                        _authCubit.signUpUser(loginTextController.text,
+                                            passwordTextController.text, emailTextController.text);
+                                      } else {
+                                        _authCubit.signInUser(
+                                            loginTextController.text, passwordTextController.text);
+                                      }
+                                    },
                             ),
                           );
                         },

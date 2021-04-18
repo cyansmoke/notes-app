@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:dio/dio.dart';
 import 'package:notes/model/note.dart';
+import 'package:notes/model/notes.dart';
 import 'package:retrofit/http.dart';
 
 import '../../main.dart';
@@ -12,12 +13,12 @@ part 'notes_client.g.dart';
 abstract class NotesApiClient {
   static const _NOTES_ENDPOINT = 'api/notes';
   static const _NOTES_WITH_ID_ENDPOINT = '$_NOTES_ENDPOINT/{id}';
-  static const _AUTH_HEADER = 'Authentication';
+  static const _AUTH_HEADER = 'Authorization';
 
   factory NotesApiClient(Dio dio, {String baseUrl}) = _NotesApiClient;
 
   @GET(_NOTES_ENDPOINT)
-  Future<List<Note>> getNotes(@Header(_AUTH_HEADER) String authToken);
+  Future<Notes> getNotes(@Header(_AUTH_HEADER) String authToken);
 
   @GET(_NOTES_WITH_ID_ENDPOINT)
   Future<Note> getNote(

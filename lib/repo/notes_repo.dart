@@ -7,19 +7,37 @@ class NotesRepository {
 
   final UserRepository _userRepository;
   final NotesApiClient _apiClient;
-  List<Note> _notes;
+  List<Note> _notes = [];
 
   String get _token => _userRepository.token;
 
   Future<List<Note>> getNotes([forceLoad = false]) async {
     if (forceLoad || _notes == null) {
       final notes = await _apiClient.getNotes(_token);
-      _notes = notes;
+      _notes = notes?.notes ?? [];
     }
+    _sortNotes();
     return _notes;
   }
 
-  Future<void> saveNote(Note note) => _apiClient.createNote(_token, note);
+  Future<void> saveNote(Note note) async {
+    await _apiClient.createNote(_token, note);
+    _notes.add(note);
+    _sortNotes();
+  }
 
-  Future<void> deleteNote(Note note) => _apiClient.deleteNote(_token, note.id);
+  Future<void> deleteNote(Note note) async {
+    await _apiClient.deleteNote(_token, note.id);
+    _notes.remove(note);
+  }
+
+  Future<void> updateNote(Note note) async {
+    await _apiClient.updateNote(_token, note.id, note);
+    _notes
+      ..removeWhere((element) => note.id == element.id)
+      ..add(note);
+    _sortNotes();
+  }
+
+  void _sortNotes() => _notes.sort((a, b) => a.id.compareTo(b.id));
 }

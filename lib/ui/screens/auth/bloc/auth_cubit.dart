@@ -14,8 +14,8 @@ class AuthCubit extends Cubit<AuthState> {
     try {
       await _repository.signInUser(login, password);
       emit(AuthDoneState());
-    } catch (e, stackTrace) {
-      log('AuthError $e $stackTrace');
+    } catch (e) {
+      log('AuthError $e');
       emit(AuthErrorState('Sign In causes error: ${e.toString()}'));
     }
   }
@@ -25,8 +25,8 @@ class AuthCubit extends Cubit<AuthState> {
     try {
       await _repository.signUpUser(login, password, email);
       emit(AuthDoneState());
-    } catch (e, stackTrace) {
-      log('AuthError $e $stackTrace');
+    } catch (e) {
+      log('AuthError $e');
       emit(AuthErrorState('Sign Up causes error: ${e.toString()}'));
     }
   }

@@ -17,22 +17,20 @@ class _NotesApiClient implements NotesApiClient {
   String baseUrl;
 
   @override
-  Future<List<Note>> getNotes(authToken) async {
+  Future<Notes> getNotes(authToken) async {
     ArgumentError.checkNotNull(authToken, 'authToken');
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _data = <String, dynamic>{};
-    final _result = await _dio.request<List<dynamic>>('api/notes',
+    final _result = await _dio.request<Map<String, dynamic>>('api/notes',
         queryParameters: queryParameters,
         options: RequestOptions(
             method: 'GET',
-            headers: <String, dynamic>{r'Authentication': authToken},
+            headers: <String, dynamic>{r'Authorization': authToken},
             extra: _extra,
             baseUrl: baseUrl),
         data: _data);
-    var value = _result.data
-        .map((dynamic i) => Note.fromJson(i as Map<String, dynamic>))
-        .toList();
+    final value = Notes.fromJson(_result.data);
     return value;
   }
 
@@ -47,7 +45,7 @@ class _NotesApiClient implements NotesApiClient {
         queryParameters: queryParameters,
         options: RequestOptions(
             method: 'GET',
-            headers: <String, dynamic>{r'Authentication': authToken},
+            headers: <String, dynamic>{r'Authorization': authToken},
             extra: _extra,
             baseUrl: baseUrl),
         data: _data);
@@ -69,7 +67,7 @@ class _NotesApiClient implements NotesApiClient {
         queryParameters: queryParameters,
         options: RequestOptions(
             method: 'PUT',
-            headers: <String, dynamic>{r'Authentication': authToken},
+            headers: <String, dynamic>{r'Authorization': authToken},
             extra: _extra,
             baseUrl: baseUrl),
         data: _data);
@@ -89,7 +87,7 @@ class _NotesApiClient implements NotesApiClient {
         queryParameters: queryParameters,
         options: RequestOptions(
             method: 'POST',
-            headers: <String, dynamic>{r'Authentication': authToken},
+            headers: <String, dynamic>{r'Authorization': authToken},
             extra: _extra,
             baseUrl: baseUrl),
         data: _data);
@@ -107,7 +105,7 @@ class _NotesApiClient implements NotesApiClient {
         queryParameters: queryParameters,
         options: RequestOptions(
             method: 'DELETE',
-            headers: <String, dynamic>{r'Authentication': authToken},
+            headers: <String, dynamic>{r'Authorization': authToken},
             extra: _extra,
             baseUrl: baseUrl),
         data: _data);

@@ -14,4 +14,10 @@ class NotesListLoadedState extends NotesListState {
   NotesListLoadedState(this.notes);
 }
 
-class NotesListFailedState extends NotesListState {}
+class NotesListEmptyState extends NotesListState {}
+
+class NotesListFailedState extends NotesListState {
+  final String error;
+
+  NotesListFailedState(this.error);
+}
