@@ -36,8 +36,12 @@ class _NoteScreenState extends State<NoteScreen> {
       body: isEditing || isCreating ? _buildEdittingBody() : _buildShowBody(),
       floatingActionButton: FloatingActionButton(
         child: Icon(isEditing || isCreating ? Icons.done : Icons.edit),
-        onPressed: () => widget.onEditingFinished(
-            _bodyTextEditingController.text, _titleTextEditingController.text),
+        onPressed: isEditing || isCreating
+            ? () => widget.onEditingFinished(
+                _bodyTextEditingController.text, _titleTextEditingController.text)
+            : () => setState(() {
+                  isEditing = !isEditing;
+                }),
       ),
     );
   }

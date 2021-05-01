@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:notes/model/note.dart';
 import 'package:notes/repo/notes_repo.dart';
 import 'package:notes/ui/screens/auth/auth_screen.dart';
 import 'package:notes/ui/screens/notes/bloc/notes_list_cubit.dart';
@@ -87,7 +88,8 @@ class _NotesListState extends State<NotesList> {
                         note: note,
                         onEditingFinished: (String body, String title) {
                           Navigator.of(context).pop();
-                          _notesListCubit.editNote(note);
+                          final newNote = Note(body, title, note.id);
+                          _notesListCubit.editNote(newNote);
                         },
                       ),
                       fullscreenDialog: true,
@@ -117,7 +119,7 @@ class _NotesListState extends State<NotesList> {
                   ),
                 );
               },
-              itemCount: null,
+              itemCount: state.notes.length,
               separatorBuilder: (BuildContext context, int index) => Divider(),
             );
           } else if (state is NotesListEmptyState) {

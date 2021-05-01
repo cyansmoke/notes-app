@@ -12,7 +12,7 @@ class NotesRepository {
   String get _token => _userRepository.token;
 
   Future<List<Note>> getNotes([forceLoad = false]) async {
-    if (forceLoad || _notes == null) {
+    if (forceLoad || _notes == null || _notes.isEmpty) {
       final notes = await _apiClient.getNotes(_token);
       _notes = notes?.notes ?? [];
     }
@@ -22,7 +22,7 @@ class NotesRepository {
 
   Future<void> saveNote(Note note) async {
     await _apiClient.createNote(_token, note);
-    _notes.add(note);
+    await getNotes(true);
     _sortNotes();
   }
 

@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:bloc/bloc.dart';
 import 'package:notes/model/note.dart';
 import 'package:notes/repo/notes_repo.dart';
@@ -17,8 +19,10 @@ class NotesListCubit extends Cubit<NotesListState> {
       } else {
         emit(NotesListLoadedState(notes));
       }
-    } catch (e) {
+    } catch (e, stackTrace) {
       emit(NotesListFailedState(e.toString()));
+      log(e.toString());
+      log(stackTrace.toString());
     }
   }
 
@@ -28,8 +32,10 @@ class NotesListCubit extends Cubit<NotesListState> {
       final newNote = Note(body, title);
       await _repository.saveNote(newNote);
       loadNotes(true);
-    } catch (e) {
+    } catch (e, stackTrace) {
       emit(NotesListFailedState(e.toString()));
+      log(e.toString());
+      log(stackTrace.toString());
     }
   }
 
@@ -38,8 +44,10 @@ class NotesListCubit extends Cubit<NotesListState> {
     try {
       await _repository.deleteNote(id);
       loadNotes();
-    } catch (e) {
+    } catch (e, stackTrace) {
       emit(NotesListFailedState(e.toString()));
+      log(e.toString());
+      log(stackTrace.toString());
     }
   }
 
@@ -48,8 +56,10 @@ class NotesListCubit extends Cubit<NotesListState> {
     try {
       await _repository.updateNote(note);
       loadNotes(true);
-    } catch (e) {
+    } catch (e, stackTrace) {
       emit(NotesListFailedState(e.toString()));
+      log(e.toString());
+      log(stackTrace.toString());
     }
   }
 }
