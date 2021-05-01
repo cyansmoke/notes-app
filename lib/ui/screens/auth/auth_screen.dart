@@ -85,7 +85,7 @@ class _AuthScreenState extends State<AuthScreen> {
                                     child: Text(state.error),
                                   ),
                                   actions: [
-                                    FlatButton(
+                                    TextButton(
                                       onPressed: () {
                                         Navigator.of(dialogContext).pop();
                                       },

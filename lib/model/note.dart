@@ -12,7 +12,7 @@ class Note {
   @JsonKey(name: 'date_created')
   final String dateCreated;
 
-  Note(this.body, this.dateCreated, [this.id, this.title]);
+  Note(this.body, this.title, [this.id, this.dateCreated]);
 
   factory Note.fromJson(Map<String, dynamic> json) => _$NoteFromJson(json);
 

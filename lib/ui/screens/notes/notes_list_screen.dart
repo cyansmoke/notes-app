@@ -7,6 +7,8 @@ import 'package:notes/ui/screens/notes/bloc/notes_list_cubit.dart';
 import 'package:notes/ui/screens/notes/bloc/notes_list_states.dart';
 import 'package:notes/ui/widgets/note_item.dart';
 
+import 'note_screen.dart';
+
 class NotesList extends StatefulWidget {
   @override
   _NotesListState createState() => _NotesListState();
@@ -40,22 +42,38 @@ class _NotesListState extends State<NotesList> {
           ),
         ],
       ),
-      body: BlocBuilder<NotesListCubit, NotesListState>(
+      body: BlocConsumer<NotesListCubit, NotesListState>(
         cubit: _notesListCubit,
+        listener: (newContext, state) {
+          if (state is NotesListFailedState) {
+            showDialog(
+              context: context,
+              builder: (dialogContext) {
+                return AlertDialog(
+                  title: Text('Error'),
+                  content: Container(
+                    child: Text(state.error),
+                  ),
+                  actions: [
+                    TextButton(
+                      onPressed: () {
+                        Navigator.of(dialogContext).pop();
+                      },
+                      child: Text('OK'),
+                    )
+                  ],
+                );
+              },
+            );
+          }
+        },
         builder: (newContext, state) {
           if (state is NotesListLoadingState || state is NotesListInitialState) {
             return Center(
               child: CircularProgressIndicator(),
             );
           } else if (state is NotesListFailedState) {
-            return Center(
-              child: ElevatedButton(
-                onPressed: () {
-                  _notesListCubit.loadNotes();
-                },
-                child: Text('Reload'),
-              ),
-            );
+            return _buildTryAgain();
           } else if (state is NotesListLoadedState) {
             return ListView.separated(
               itemBuilder: (BuildContext itemContext, int index) {
@@ -63,6 +81,40 @@ class _NotesListState extends State<NotesList> {
                 return NoteItem(
                   title: note.title,
                   date: note.dateCreated,
+                  onTap: () => Navigator.of(context).push(
+                    MaterialPageRoute(
+                      builder: (context) => NoteScreen(
+                        note: note,
+                        onEditingFinished: (String body, String title) {
+                          Navigator.of(context).pop();
+                          _notesListCubit.editNote(note);
+                        },
+                      ),
+                      fullscreenDialog: true,
+                    ),
+                  ),
+                  onLongTap: () => showDialog(
+                    context: context,
+                    builder: (dialogContext) => AlertDialog(
+                      title: Text('Deleting'),
+                      content: Text('Do u want delete this note?'),
+                      actions: [
+                        TextButton(
+                          onPressed: () {
+                            Navigator.of(dialogContext).pop();
+                            _notesListCubit.deleteNote(note.id);
+                          },
+                          child: Text('Yes'),
+                        ),
+                        TextButton(
+                          onPressed: () {
+                            Navigator.of(dialogContext).pop();
+                          },
+                          child: Text('No'),
+                        )
+                      ],
+                    ),
+                  ),
                 );
               },
               itemCount: null,
@@ -81,7 +133,16 @@ class _NotesListState extends State<NotesList> {
         },
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {},
+        onPressed: () => Navigator.of(context).push(
+          MaterialPageRoute(
+            builder: (context) => NoteScreen(
+              onEditingFinished: (String body, String title) {
+                Navigator.of(context).pop();
+                _notesListCubit.addNote(title, body);
+              },
+            ),
+          ),
+        ),
         child: Icon(
           Icons.add,
         ),
@@ -89,5 +150,14 @@ class _NotesListState extends State<NotesList> {
     );
   }
 
-  Widget _buildTryAgain() {}
+  Widget _buildTryAgain() {
+    return Center(
+      child: ElevatedButton(
+        onPressed: () {
+          _notesListCubit.loadNotes(true);
+        },
+        child: Text('Reload'),
+      ),
+    );
+  }
 }

@@ -26,9 +26,9 @@ class NotesRepository {
     _sortNotes();
   }
 
-  Future<void> deleteNote(Note note) async {
-    await _apiClient.deleteNote(_token, note.id);
-    _notes.remove(note);
+  Future<void> deleteNote(int id) async {
+    await _apiClient.deleteNote(_token, id);
+    _notes..removeWhere((element) => id == element.id);
   }
 
   Future<void> updateNote(Note note) async {
