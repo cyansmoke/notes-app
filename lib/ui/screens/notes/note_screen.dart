@@ -41,30 +41,64 @@ class _NoteScreenState extends State<NoteScreen> {
                 _bodyTextEditingController.text, _titleTextEditingController.text)
             : () => setState(() {
                   isEditing = !isEditing;
+                  _bodyTextEditingController.text = widget.note.body;
+                  _titleTextEditingController.text = widget.note.title;
                 }),
       ),
     );
   }
 
   Widget _buildEdittingBody() {
-    return Column(
-      children: [
-        Text('Body:'),
-        TextField(controller: _bodyTextEditingController),
-        Text('Title:'),
-        TextField(controller: _titleTextEditingController),
-      ],
+    return Center(
+      child: Column(
+        children: [
+          Text(
+            'Title:',
+            style: TextStyle(fontSize: 18),
+          ),
+          TextField(
+            controller: _titleTextEditingController,
+            style: TextStyle(fontSize: 16),
+          ),
+          SizedBox(
+            height: 24.0,
+          ),
+          Text(
+            'Body:',
+            style: TextStyle(fontSize: 18),
+          ),
+          TextField(
+            controller: _bodyTextEditingController,
+            style: TextStyle(fontSize: 16),
+          ),
+        ],
+      ),
     );
   }
 
   Widget _buildShowBody() {
-    return Column(
-      children: [
-        Text('Title:'),
-        Text(widget.note.title),
-        Text('Body:'),
-        Text(widget.note.body),
-      ],
+    return Center(
+      child: Column(
+        children: [
+          Text(
+            'Title:',
+            style: TextStyle(fontSize: 18),
+          ),
+          Text(
+            widget.note.title,
+            style: TextStyle(fontSize: 16),
+          ),
+          SizedBox(height: 24),
+          Text(
+            'Body:',
+            style: TextStyle(fontSize: 18),
+          ),
+          Text(
+            widget.note.body,
+            style: TextStyle(fontSize: 16),
+          ),
+        ],
+      ),
     );
   }
 }
