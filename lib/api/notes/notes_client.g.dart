@@ -83,7 +83,7 @@ class _NotesApiClient implements NotesApiClient {
     final _data = <String, dynamic>{};
     _data.addAll(note?.toJson() ?? <String, dynamic>{});
     _data.removeWhere((k, v) => v == null);
-    await _dio.request<void>('api/notes',
+    await _dio.request<void>('api/notes/',
         queryParameters: queryParameters,
         options: RequestOptions(
             method: 'POST',

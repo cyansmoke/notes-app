@@ -41,10 +41,6 @@ class LogInterceptor implements Interceptor {
 
 void main() {
   runApp(MyApp());
-  dio.options.maxRedirects = 1000;
-  dio.options.validateStatus = (status) {
-    return status < 400;
-  };
   dio.interceptors.add(LogInterceptor());
 }
 
