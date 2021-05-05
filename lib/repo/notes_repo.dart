@@ -39,5 +39,7 @@ class NotesRepository {
     _sortNotes();
   }
 
+  void clearNotes() => _notes.clear();
+
   void _sortNotes() => _notes.sort((a, b) => a.id.compareTo(b.id));
 }

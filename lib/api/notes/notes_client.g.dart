@@ -22,7 +22,7 @@ class _NotesApiClient implements NotesApiClient {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _data = <String, dynamic>{};
-    final _result = await _dio.request<Map<String, dynamic>>('api/notes',
+    final _result = await _dio.request<Map<String, dynamic>>('api/notes/',
         queryParameters: queryParameters,
         options: RequestOptions(
             method: 'GET',

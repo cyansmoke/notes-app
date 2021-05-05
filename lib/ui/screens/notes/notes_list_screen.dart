@@ -3,9 +3,11 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:notes/model/note.dart';
 import 'package:notes/repo/notes_repo.dart';
+import 'package:notes/repo/user_repo.dart';
 import 'package:notes/ui/screens/auth/auth_screen.dart';
 import 'package:notes/ui/screens/notes/bloc/notes_list_cubit.dart';
 import 'package:notes/ui/screens/notes/bloc/notes_list_states.dart';
+import 'package:notes/ui/screens/user/user_screen.dart';
 import 'package:notes/ui/widgets/note_item.dart';
 
 import 'note_screen.dart';
@@ -34,11 +36,20 @@ class _NotesListState extends State<NotesList> {
         actions: [
           PopupMenuButton<String>(
             onSelected: (selected) {
-              Navigator.of(context)
-                  .pushReplacement(MaterialPageRoute(builder: (context) => AuthScreen()));
+              if (selected == 'LogOut') {
+                Navigator.of(context)
+                    .pushReplacement(MaterialPageRoute(builder: (context) => AuthScreen()));
+                RepositoryProvider.of<NotesRepository>(context).clearNotes();
+              } else if (selected == 'User') {
+                Navigator.of(context).push(
+                    MaterialPageRoute(builder: (context) => UserScreen(), fullscreenDialog: true));
+              }
             },
             itemBuilder: (BuildContext itemContext) {
-              return [PopupMenuItem<String>(value: 'LogOut', child: Text('LogOut'))];
+              return [
+                PopupMenuItem<String>(value: 'LogOut', child: Text('LogOut')),
+                PopupMenuItem<String>(value: 'User', child: Text('Edit User')),
+              ];
             },
           ),
         ],
