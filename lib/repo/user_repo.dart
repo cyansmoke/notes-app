@@ -17,8 +17,6 @@ class UserRepository {
 
   Future<String> signUpUser(String login, String password, String email) async {
     final userToSignUp = User(login, password, email);
-    await _authUser(userToSignUp);
-    userToSignUp.email = null;
     return _authUser(userToSignUp);
   }
 
