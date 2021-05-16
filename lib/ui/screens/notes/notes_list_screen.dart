@@ -93,8 +93,9 @@ class _NotesListState extends State<NotesList> {
             } else if (state is NotesListLoadedState) {
               final filteredNotes = <Note>[]..addAll(state.notes);
               if (_searchTextController.text.isNotEmpty) {
-                filteredNotes
-                    .removeWhere((element) => !element.title.contains(_searchTextController.text));
+                filteredNotes.removeWhere((element) =>
+                    !(element.title.contains(_searchTextController.text) ||
+                        element.body.contains(_searchTextController.text)));
               }
               return Column(
                 children: [
