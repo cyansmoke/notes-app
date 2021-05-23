@@ -129,7 +129,7 @@ class _NotesListState extends State<NotesList> {
                           ),
                         ),
                         onLongTap: () => showDialog(
-                          context: context,a
+                          context: context,
                           builder: (dialogContext) => AlertDialog(
                             title: Text('Deleting'),
                             content: Text('Do u want delete note ${note.title}?'),
