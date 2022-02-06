@@ -10,20 +10,21 @@ class AuthCubit extends Cubit<AuthState> {
   final UserRepository _repository;
 
   Future<void> signInUser(String login, String password) async {
-    emit(AuthLoadingState());
-    try {
-      await _repository.signInUser(login, password);
-      emit(AuthDoneState());
-    } catch (e) {
-      log('AuthError $e');
-      emit(AuthErrorState('Sign In causes error: ${e.toString()}'));
-    }
+    executeWithStatesUpdate(_repository.signInUser(login, password));
   }
 
   Future<void> signUpUser(String login, String password, String email) async {
+    executeWithStatesUpdate(_repository.signUpUser(login, password, email));
+  }
+
+  Future<void> signInCourier(String login, String password) async {
+    executeWithStatesUpdate(Future.value(0));
+  }
+
+  Future<void> executeWithStatesUpdate(Future functionToExecute) async {
     emit(AuthLoadingState());
     try {
-      await _repository.signUpUser(login, password, email);
+      await functionToExecute;
       emit(AuthDoneState());
     } catch (e) {
       log('AuthError $e');

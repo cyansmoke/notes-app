@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="NONE" />
+  </component>
   <component name="BranchesTreeState">
     <expand>
       <path>
@@ -19,20 +22,18 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="62672aa1-0107-4668-8c3d-7aaf51d1acb8" name="Default Changelist" comment="added auth screen and logic">
+    <list default="true" id="62672aa1-0107-4668-8c3d-7aaf51d1acb8" name="Default Changelist" comment="added deleting title">
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/android/.idea/caches/build_file_checksums.ser" beforeDir="false" afterPath="$PROJECT_DIR$/android/.idea/caches/build_file_checksums.ser" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/.idea/libraries/Gradle__io_flutter_arm64_v8a_debug_1_0_0_ae90085a8437c0ae94d6b5ad2741739ebc742cb4.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/.idea/libraries/Gradle__io_flutter_armeabi_v7a_debug_1_0_0_ae90085a8437c0ae94d6b5ad2741739ebc742cb4.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/.idea/libraries/Gradle__io_flutter_flutter_embedding_debug_1_0_0_ae90085a8437c0ae94d6b5ad2741739ebc742cb4.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/.idea/libraries/Gradle__io_flutter_x86_64_debug_1_0_0_ae90085a8437c0ae94d6b5ad2741739ebc742cb4.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/.idea/libraries/Gradle__io_flutter_x86_debug_1_0_0_ae90085a8437c0ae94d6b5ad2741739ebc742cb4.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/android/.idea/modules/app/android.app.iml" beforeDir="false" afterPath="$PROJECT_DIR$/android/.idea/modules/app/android.app.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/api/notes/notes_client.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/api/notes/notes_client.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/api/notes/notes_client.g.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/api/notes/notes_client.g.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/main.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/repo/notes_repo.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/repo/notes_repo.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/repo/user_repo.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/repo/user_repo.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/ui/screens/auth/auth_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/ui/screens/auth/auth_screen.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/ui/screens/auth/bloc/auth_cubit.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/ui/screens/auth/bloc/auth_cubit.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/ui/screens/notes/bloc/notes_list_cubit.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/ui/screens/notes/bloc/notes_list_cubit.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/ui/screens/notes/bloc/notes_list_states.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/ui/screens/notes/bloc/notes_list_states.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/ui/screens/notes/notes_list_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/ui/screens/notes/notes_list_screen.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,7 +48,20 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="main" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
   </component>
   <component name="ProjectId" id="1qOEhCEQxuPWQJ0Ljp52AHWBVwg" />
   <component name="ProjectLevelVcsManager">
@@ -64,7 +78,7 @@
     <property name="dart.analysis.tool.window.visible" value="false" />
     <property name="io.flutter.reload.alreadyRun" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="settings.editor.selected.configurable" value="configurable.group.language" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
     <property name="show.migrate.to.gradle.popup" value="false" />
   </component>
   <component name="RecentsManager">
@@ -80,6 +94,7 @@
       <method v="2" />
     </configuration>
   </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="project-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -119,7 +134,84 @@
       <option name="project" value="LOCAL" />
       <updated>1618764838541</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="added states">
+      <created>1618775185128</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1618775185128</updated>
+    </task>
+    <task id="LOCAL-00006" summary="finished developing">
+      <created>1619888725004</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1619888725004</updated>
+    </task>
+    <task id="LOCAL-00007" summary="added new method calls, fixed statuscode validation">
+      <created>1619893972278</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1619893972278</updated>
+    </task>
+    <task id="LOCAL-00008" summary="fixed request">
+      <created>1619897060666</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1619897060666</updated>
+    </task>
+    <task id="LOCAL-00009" summary="little fixed ui">
+      <created>1619901097387</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1619901097387</updated>
+    </task>
+    <task id="LOCAL-00010" summary="added users logic">
+      <created>1620246678949</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1620246678949</updated>
+    </task>
+    <task id="LOCAL-00011" summary="fixed registration">
+      <created>1620465706956</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1620465706956</updated>
+    </task>
+    <task id="LOCAL-00012" summary="added search">
+      <created>1620650504041</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1620650504041</updated>
+    </task>
+    <task id="LOCAL-00013" summary="added search in body">
+      <created>1621169929241</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1621169929241</updated>
+    </task>
+    <task id="LOCAL-00014" summary="added deleting title">
+      <created>1621789500008</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1621789500008</updated>
+    </task>
+    <task id="LOCAL-00015" summary="added deleting title">
+      <created>1621789512280</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1621789512280</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -139,45 +231,17 @@
     <MESSAGE value="added notes models and start create logic" />
     <MESSAGE value="added models and logic layer" />
     <MESSAGE value="added auth screen and logic" />
-    <option name="LAST_COMMIT_MESSAGE" value="added auth screen and logic" />
-  </component>
-  <component name="WindowStateProjectService">
-    <state x="360" y="222" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1616949183178">
-      <screen x="0" y="0" width="1792" height="1120" />
-    </state>
-    <state x="360" y="222" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1792.1120@0.0.1792.1120" timestamp="1616949183178" />
-    <state x="709" y="283" key="#com.intellij.ide.util.MemberChooser" timestamp="1618757602362">
-      <screen x="0" y="0" width="1792" height="1120" />
-    </state>
-    <state x="709" y="283" key="#com.intellij.ide.util.MemberChooser/0.0.1792.1120@0.0.1792.1120" timestamp="1618757602362" />
-    <state x="100" y="100" width="1592" height="920" key="AVDManager" timestamp="1616944119330">
-      <screen x="0" y="23" width="1792" height="1013" />
-    </state>
-    <state x="100" y="100" width="1592" height="920" key="AVDManager/0.23.1792.1013@0.23.1792.1013" timestamp="1616944119330" />
-    <state width="1750" height="318" key="GridCell.Tab.0.bottom" timestamp="1618774993621">
-      <screen x="0" y="0" width="1792" height="1120" />
-    </state>
-    <state width="1750" height="318" key="GridCell.Tab.0.bottom/0.0.1792.1120@0.0.1792.1120" timestamp="1618774993621" />
-    <state width="1750" height="318" key="GridCell.Tab.0.center" timestamp="1618774993621">
-      <screen x="0" y="0" width="1792" height="1120" />
-    </state>
-    <state width="1750" height="318" key="GridCell.Tab.0.center/0.0.1792.1120@0.0.1792.1120" timestamp="1618774993621" />
-    <state width="1750" height="318" key="GridCell.Tab.0.left" timestamp="1618774993621">
-      <screen x="0" y="0" width="1792" height="1120" />
-    </state>
-    <state width="1750" height="318" key="GridCell.Tab.0.left/0.0.1792.1120@0.0.1792.1120" timestamp="1618774993621" />
-    <state width="1750" height="318" key="GridCell.Tab.0.right" timestamp="1618774993621">
-      <screen x="0" y="0" width="1792" height="1120" />
-    </state>
-    <state width="1750" height="318" key="GridCell.Tab.0.right/0.0.1792.1120@0.0.1792.1120" timestamp="1618774993621" />
-    <state x="496" y="287" key="Vcs.Push.Dialog.v2" timestamp="1618764840238">
-      <screen x="0" y="0" width="1792" height="1120" />
-    </state>
-    <state x="496" y="287" key="Vcs.Push.Dialog.v2/0.0.1792.1120@0.0.1792.1120" timestamp="1618764840238" />
-    <state x="561" y="251" width="670" height="676" key="search.everywhere.popup" timestamp="1618773450429">
-      <screen x="0" y="0" width="1792" height="1120" />
-    </state>
-    <state x="561" y="251" width="670" height="676" key="search.everywhere.popup/0.0.1792.1120@0.0.1792.1120" timestamp="1618773450429" />
+    <MESSAGE value="added states" />
+    <MESSAGE value="finished developing" />
+    <MESSAGE value="added new method calls, fixed statuscode validation" />
+    <MESSAGE value="fixed request" />
+    <MESSAGE value="little fixed ui" />
+    <MESSAGE value="added users logic" />
+    <MESSAGE value="fixed registration" />
+    <MESSAGE value="added search" />
+    <MESSAGE value="added search in body" />
+    <MESSAGE value="added deleting title" />
+    <option name="LAST_COMMIT_MESSAGE" value="added deleting title" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -192,27 +256,15 @@
           <line>64</line>
           <option name="timeStamp" value="3" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="Dart">
-          <url>file://$PROJECT_DIR$/lib/ui/screens/notes/bloc/notes_list_cubit.dart</url>
-          <line>14</line>
-          <option name="timeStamp" value="9" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="Dart">
-          <url>file://$PROJECT_DIR$/lib/ui/screens/notes/bloc/notes_list_cubit.dart</url>
-          <line>16</line>
-          <option name="timeStamp" value="11" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="Dart">
-          <url>file://$PROJECT_DIR$/lib/ui/screens/notes/bloc/notes_list_cubit.dart</url>
-          <line>19</line>
-          <option name="timeStamp" value="12" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="Dart">
-          <url>file://$PROJECT_DIR$/lib/ui/screens/notes/bloc/notes_list_cubit.dart</url>
-          <line>12</line>
-          <option name="timeStamp" value="13" />
-        </line-breakpoint>
       </breakpoints>
+      <default-breakpoints>
+        <breakpoint suspend="THREAD" type="dart-exception" />
+      </default-breakpoints>
     </breakpoint-manager>
+    <watches-manager>
+      <configuration name="FlutterRunConfigurationType">
+        <watch expression="_notes" language="Dart" />
+      </configuration>
+    </watches-manager>
   </component>
 </project>

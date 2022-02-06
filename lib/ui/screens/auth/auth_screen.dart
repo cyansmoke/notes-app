@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
@@ -15,8 +13,10 @@ class AuthScreen extends StatefulWidget {
   _AuthScreenState createState() => _AuthScreenState();
 }
 
+enum LoginState { Registration, Login, Courier }
+
 class _AuthScreenState extends State<AuthScreen> {
-  bool _isRegisterState = false;
+  LoginState _currentState = LoginState.Login;
   final loginTextController = TextEditingController();
   final passwordTextController = TextEditingController();
   final emailTextController = TextEditingController();
@@ -29,12 +29,40 @@ class _AuthScreenState extends State<AuthScreen> {
     _authCubit = AuthCubit(RepositoryProvider.of<UserRepository>(context));
   }
 
+  String _getTitle() {
+    switch (_currentState) {
+      case LoginState.Registration:
+        return 'Registration';
+      case LoginState.Login:
+        return 'Login';
+      case LoginState.Courier:
+        return 'Courier Login';
+      default:
+        return '';
+    }
+  }
+
+  void executeAction() {
+    switch (_currentState) {
+      case LoginState.Registration:
+        _authCubit.signUpUser(
+            loginTextController.text, passwordTextController.text, emailTextController.text);
+        break;
+      case LoginState.Login:
+        _authCubit.signInUser(loginTextController.text, passwordTextController.text);
+        break;
+      case LoginState.Courier:
+        _authCubit.signInCourier(loginTextController.text, passwordTextController.text);
+        break;
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        title: Text(_isRegisterState ? 'Register' : 'Login'),
+        title: Text(_getTitle()),
       ),
       body: Container(
         width: double.infinity,
@@ -65,7 +93,7 @@ class _AuthScreenState extends State<AuthScreen> {
                           labelText: 'Password',
                         ),
                       ),
-                      if (_isRegisterState)
+                      if (_currentState == LoginState.Registration)
                         TextField(
                           controller: emailTextController,
                           decoration: InputDecoration(
@@ -120,7 +148,7 @@ class _AuthScreenState extends State<AuthScreen> {
                                             height: 18,
                                           )
                                         : Text(
-                                            _isRegisterState ? 'Register' : 'Login',
+                                            _getTitle(),
                                             textAlign: TextAlign.center,
                                             style: TextStyle(
                                               fontSize: 16,
@@ -129,17 +157,7 @@ class _AuthScreenState extends State<AuthScreen> {
                                   ),
                                 ),
                               ),
-                              onPressed: state is AuthLoadingState
-                                  ? null
-                                  : () {
-                                      if (_isRegisterState) {
-                                        _authCubit.signUpUser(loginTextController.text,
-                                            passwordTextController.text, emailTextController.text);
-                                      } else {
-                                        _authCubit.signInUser(
-                                            loginTextController.text, passwordTextController.text);
-                                      }
-                                    },
+                              onPressed: state is AuthLoadingState ? null : () {},
                             ),
                           );
                         },
@@ -149,16 +167,38 @@ class _AuthScreenState extends State<AuthScreen> {
                 ),
               ),
               Positioned(
-                bottom: 20,
-                left: 0,
-                right: 0,
-                child: CupertinoButton(
-                  onPressed: () => setState(() {
-                    _isRegisterState = !_isRegisterState;
-                  }),
-                  child: Text(_isRegisterState ? 'Back to Login' : 'Register'),
-                ),
-              ),
+                  bottom: 20,
+                  left: 0,
+                  right: 0,
+                  child: Column(
+                    children: [
+                      CupertinoButton(
+                        onPressed: () => setState(
+                          () {
+                            _currentState != LoginState.Courier
+                                ? _currentState = LoginState.Courier
+                                : _currentState = LoginState.Login;
+                          },
+                        ),
+                        child: Text(_currentState != LoginState.Courier
+                            ? 'Go to Courier Login'
+                            : 'Back to Common Login'),
+                      ),
+                      Visibility(
+                        visible: _currentState != LoginState.Courier,
+                        child: CupertinoButton(
+                          onPressed: () => setState(() {
+                            _currentState == LoginState.Registration
+                                ? _currentState = LoginState.Login
+                                : _currentState = LoginState.Registration;
+                          }),
+                          child: Text(_currentState == LoginState.Registration
+                              ? 'Back to Login'
+                              : 'Register'),
+                        ),
+                      ),
+                    ],
+                  )),
             ],
           ),
         ),
