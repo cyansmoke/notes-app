@@ -22,8 +22,10 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="62672aa1-0107-4668-8c3d-7aaf51d1acb8" name="Default Changelist" comment="started impl">
+    <list default="true" id="62672aa1-0107-4668-8c3d-7aaf51d1acb8" name="Default Changelist" comment="started implement courier's api">
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/api/courier/courier_client.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/api/courier/courier_client.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,6 +55,9 @@
       <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
     </file-type-list>
   </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
   <component name="ProjectId" id="1qOEhCEQxuPWQJ0Ljp52AHWBVwg" />
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="1" id="Add" />
@@ -73,17 +78,22 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/lib/model/order" />
       <recent name="$PROJECT_DIR$/lib/api/orders" />
       <recent name="$PROJECT_DIR$/lib/ui/screens/notes" />
       <recent name="$PROJECT_DIR$/lib/ui" />
       <recent name="$PROJECT_DIR$/lib/api/notes" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Flutter.main.dart">
     <configuration name="main.dart" type="FlutterRunConfigurationType" factoryName="Flutter">
       <option name="filePath" value="$PROJECT_DIR$/lib/main.dart" />
       <method v="2" />
     </configuration>
+    <list>
+      <item itemvalue="Flutter.main.dart" />
+      <item itemvalue="Shell Script.build_runner build" />
+    </list>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="project-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
@@ -215,7 +225,6 @@
         </entry>
       </map>
     </option>
-    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="added notes api" />
@@ -233,7 +242,8 @@
     <MESSAGE value="added search in body" />
     <MESSAGE value="added deleting title" />
     <MESSAGE value="started impl" />
-    <option name="LAST_COMMIT_MESSAGE" value="started impl" />
+    <MESSAGE value="started implement courier's api" />
+    <option name="LAST_COMMIT_MESSAGE" value="started implement courier's api" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

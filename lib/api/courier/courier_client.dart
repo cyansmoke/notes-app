@@ -1,39 +1,32 @@
+import 'package:dio/dio.dart';
+import 'package:notes/model/order/orders.dart';
 import 'package:retrofit/http.dart';
 
 import '../../main.dart';
+import '../../model/order/order.dart';
+
+part "courier_client.g.dart";
 
 @RestApi(baseUrl: BASE_URL)
 abstract class CourierApiClient {
-  static const _COURIER_ENDPOINT = 'api/courier/';
-  static const _NOTES_WITH_ID_ENDPOINT = '$_COURIER_ENDPOINT{id}';
+  static const _COURIER_ENDPOINT = 'api/courier/orders/';
+  static const _ORDER_WITH_ID_ENDPOINT = '$_COURIER_ENDPOINT{id}/done';
   static const _AUTH_HEADER = 'Authorization';
+  static const _CREATE_ORDERS_ENDPOINT = '$_COURIER_ENDPOINT{id}/map';
 
   factory CourierApiClient(Dio dio, {String baseUrl}) = _CourierApiClient;
 
   @GET(_COURIER_ENDPOINT)
-  Future<Notes> getNotes(@Header(_AUTH_HEADER) String authToken);
+  Future<Orders> getOrders(@Header(_AUTH_HEADER) String authToken);
 
-  @GET(_NOTES_WITH_ID_ENDPOINT)
-  Future<Note> getNote(
+  @GET(_ORDER_WITH_ID_ENDPOINT)
+  Future<Order> markOrderAsDone(
     @Header(_AUTH_HEADER) String authToken,
     @Path('id') int id,
   );
 
-  @PUT(_NOTES_WITH_ID_ENDPOINT)
-  Future<void> updateNote(
-    @Header(_AUTH_HEADER) String authToken,
-    @Path('id') int id,
-    @Body() Note note,
-  );
-
-  @POST(_COURIER_ENDPOINT)
-  Future<void> createNote(
-    @Header(_AUTH_HEADER) String authToken,
-    @Body() Note note,
-  );
-
-  @DELETE(_NOTES_WITH_ID_ENDPOINT)
-  Future<void> deleteNote(
+  @GET(_CREATE_ORDERS_ENDPOINT)
+  Future<Order> createOrderMap(
     @Header(_AUTH_HEADER) String authToken,
     @Path('id') int id,
   );
