@@ -11,12 +11,12 @@ class UserRepository {
   String _token;
 
   Future<String> signInUser(String login, String password) async {
-    final userToSignIn = User(login, password);
+    final userToSignIn = User(null, login, password);
     return _authUser(userToSignIn);
   }
 
   Future<String> signUpUser(String login, String password, String email) async {
-    final userToSignUp = User(login, password, email);
+    final userToSignUp = User(null, login, password, email);
     return _authUser(userToSignUp);
   }
 
@@ -32,8 +32,4 @@ class UserRepository {
   }
 
   Future<User> getUser() => _apiClient.getUser(token);
-
-  Future<void> deleteUser() => _apiClient.deleteUser(token);
-
-  Future<void> updateUser(User newUser) => _apiClient.updateUser(token, newUser);
 }

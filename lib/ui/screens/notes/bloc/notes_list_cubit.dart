@@ -5,10 +5,10 @@ import 'package:notes/model/note.dart';
 import 'package:notes/repo/notes_repo.dart';
 import 'package:notes/ui/screens/notes/bloc/notes_list_states.dart';
 
-class NotesListCubit extends Cubit<NotesListState> {
-  NotesListCubit(this._repository) : super(NotesListInitialState());
+class OrdersListCubit extends Cubit<NotesListState> {
+  OrdersListCubit(this._repository) : super(NotesListInitialState());
 
-  final NotesRepository _repository;
+  final OrdersRepository _repository;
 
   void loadNotes([forceUpdate = false]) async {
     emit(NotesListLoadingState());

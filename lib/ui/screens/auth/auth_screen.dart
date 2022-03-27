@@ -124,8 +124,8 @@ class _AuthScreenState extends State<AuthScreen> {
                               },
                             );
                           } else if (state is AuthDoneState) {
-                            Navigator.pushReplacement(
-                                context, MaterialPageRoute(builder: (routeContext) => NotesList()));
+                            Navigator.pushReplacement(context,
+                                MaterialPageRoute(builder: (routeContext) => OrdersList()));
                           }
                         },
                         builder: (newContext, state) {
@@ -157,7 +157,12 @@ class _AuthScreenState extends State<AuthScreen> {
                                   ),
                                 ),
                               ),
-                              onPressed: state is AuthLoadingState ? null : () {},
+                              onPressed: state is AuthLoadingState
+                                  ? null
+                                  : () {
+                                      _authCubit.signInUser(
+                                          loginTextController.text, passwordTextController.text);
+                                    },
                             ),
                           );
                         },

@@ -75,12 +75,6 @@ class _UserScreenState extends State<UserScreen> {
                 SizedBox(
                   height: 24.0,
                 ),
-                TextButton(
-                  onPressed: () {
-                    _userCubit.deleteUser();
-                  },
-                  child: Text('Delete User'),
-                ),
               ],
             );
           } else if (state is UserLoadingState) {
@@ -103,19 +97,12 @@ class _UserScreenState extends State<UserScreen> {
         },
         listener: (BuildContext context, state) {
           if (state is UserDeletedState) {
-            RepositoryProvider.of<NotesRepository>(context).clearNotes();
+            RepositoryProvider.of<OrdersRepository>(context).clearNotes();
             Navigator.of(context).pop();
             Navigator.of(context)
                 .pushReplacement(MaterialPageRoute(builder: (newContext) => AuthScreen()));
           }
         },
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          _userCubit.changeUser(
-              _loginTextController.text, _emailTextController.text, _passwordTextController.text);
-        },
-        child: Icon(Icons.done),
       ),
     );
   }

@@ -17,25 +17,4 @@ class UserCubit extends Cubit<UserState> {
       emit(UserErrorState(e.toString()));
     }
   }
-
-  void changeUser(String newLogin, String newEmail, String newPassword) async {
-    emit(UserLoadingState());
-    final newUser = User(newLogin, newPassword, newEmail);
-    try {
-      await _repository.updateUser(newUser);
-      emit(UserLoadedState(newUser));
-    } catch (e) {
-      emit(UserErrorState(e.toString()));
-    }
-  }
-
-  void deleteUser() async {
-    emit(UserLoadingState());
-    try {
-      await _repository.deleteUser();
-      emit(UserDeletedState());
-    } catch (e) {
-      emit(UserErrorState(e.toString()));
-    }
-  }
 }

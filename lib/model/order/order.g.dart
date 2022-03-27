@@ -15,6 +15,8 @@ Order _$OrderFromJson(Map<String, dynamic> json) {
     json['phoneNumber'] as String,
     json['isDone'] as bool,
     json['clientId'] as int,
+    json['createdTime'],
+    json['supposedTimePeriod'],
   );
 }
 
@@ -24,4 +26,6 @@ Map<String, dynamic> _$OrderToJson(Order instance) => <String, dynamic>{
       'phoneNumber': instance.phoneNumber,
       'isDone': instance.isDone,
       'clientId': instance.clientId,
+      'createdTime': instance.createdTime,
+      'supposedTimePeriod': instance.supposedTimePeriod,
     };

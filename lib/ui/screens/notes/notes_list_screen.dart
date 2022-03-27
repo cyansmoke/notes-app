@@ -12,20 +12,20 @@ import 'package:notes/ui/widgets/note_item.dart';
 
 import 'note_screen.dart';
 
-class NotesList extends StatefulWidget {
+class OrdersList extends StatefulWidget {
   @override
-  _NotesListState createState() => _NotesListState();
+  _OrdersListState createState() => _OrdersListState();
 }
 
-class _NotesListState extends State<NotesList> {
-  NotesListCubit _notesListCubit;
+class _OrdersListState extends State<OrdersList> {
+  OrdersListCubit _notesListCubit;
   TextEditingController _searchTextController = TextEditingController();
 
   @override
   void initState() {
     super.initState();
     _searchTextController.addListener(() => setState(() {}));
-    _notesListCubit = NotesListCubit(RepositoryProvider.of<NotesRepository>(context));
+    _notesListCubit = OrdersListCubit(RepositoryProvider.of<OrdersRepository>(context));
     _notesListCubit.loadNotes();
   }
 
@@ -43,7 +43,7 @@ class _NotesListState extends State<NotesList> {
                 if (selected == 'LogOut') {
                   Navigator.of(context)
                       .pushReplacement(MaterialPageRoute(builder: (context) => AuthScreen()));
-                  RepositoryProvider.of<NotesRepository>(context).clearNotes();
+                  RepositoryProvider.of<OrdersRepository>(context).clearNotes();
                 } else if (selected == 'User') {
                   Navigator.of(context).push(MaterialPageRoute(
                       builder: (context) => UserScreen(), fullscreenDialog: true));
@@ -58,7 +58,7 @@ class _NotesListState extends State<NotesList> {
             ),
           ],
         ),
-        body: BlocConsumer<NotesListCubit, NotesListState>(
+        body: BlocConsumer<OrdersListCubit, NotesListState>(
           cubit: _notesListCubit,
           listener: (newContext, state) {
             if (state is NotesListFailedState) {

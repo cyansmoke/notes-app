@@ -75,39 +75,39 @@ class _UserApiClient implements UserApiClient {
   }
 
   @override
-  Future<void> updateUser(authToken, user) async {
+  Future<Orders> getOrders(authToken) async {
     ArgumentError.checkNotNull(authToken, 'authToken');
-    ArgumentError.checkNotNull(user, 'user');
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _data = <String, dynamic>{};
-    _data.addAll(user?.toJson() ?? <String, dynamic>{});
-    _data.removeWhere((k, v) => v == null);
-    await _dio.request<void>('api/user/',
+    final _result = await _dio.request<Map<String, dynamic>>('orders/get',
         queryParameters: queryParameters,
         options: RequestOptions(
-            method: 'PUT',
+            method: 'GET',
             headers: <String, dynamic>{r'Authorization': authToken},
             extra: _extra,
             baseUrl: baseUrl),
         data: _data);
-    return null;
+    final value = Orders.fromJson(_result.data);
+    return value;
   }
 
   @override
-  Future<void> deleteUser(authToken) async {
+  Future<Order> createOrder(authToken, id) async {
     ArgumentError.checkNotNull(authToken, 'authToken');
+    ArgumentError.checkNotNull(id, 'id');
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _data = <String, dynamic>{};
-    await _dio.request<void>('api/user/',
+    final _result = await _dio.request<Map<String, dynamic>>('orders/make',
         queryParameters: queryParameters,
         options: RequestOptions(
-            method: 'DELETE',
+            method: 'GET',
             headers: <String, dynamic>{r'Authorization': authToken},
             extra: _extra,
             baseUrl: baseUrl),
         data: _data);
-    return null;
+    final value = Order.fromJson(_result.data);
+    return value;
   }
 }

@@ -1,5 +1,6 @@
 import 'dart:developer';
 
+import 'package:dio/adapter.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -49,8 +50,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return RepositoryProvider<UserRepository>(
       create: (context) => UserRepository(UserApiClient(dio)),
-      child: RepositoryProvider<NotesRepository>(
-        create: (context) => NotesRepository(
+      child: RepositoryProvider<OrdersRepository>(
+        create: (context) => OrdersRepository(
           RepositoryProvider.of<UserRepository>(context),
           NotesApiClient(dio),
         ),

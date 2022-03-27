@@ -6,10 +6,21 @@ part 'user.g.dart';
 class User {
   final String login;
   String email;
+  final int id;
+  String phoneNumber;
+  String address;
   final String password;
 
-  User(this.login, this.password, [this.email]);
+  User(
+    this.id,
+    this.login,
+    this.password, [
+    this.email,
+    this.phoneNumber,
+    this.address,
+  ]);
 
   factory User.fromJson(Map<String, dynamic> json) => _$UserFromJson(json);
+
   Map<String, dynamic> toJson() => _$UserToJson(this);
 }

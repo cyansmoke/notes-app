@@ -2,8 +2,8 @@ import 'package:notes/api/notes/notes_client.dart';
 import 'package:notes/model/note.dart';
 import 'package:notes/repo/user_repo.dart';
 
-class NotesRepository {
-  NotesRepository(this._userRepository, this._apiClient);
+class OrdersRepository {
+  OrdersRepository(this._userRepository, this._apiClient);
 
   final UserRepository _userRepository;
   final NotesApiClient _apiClient;
