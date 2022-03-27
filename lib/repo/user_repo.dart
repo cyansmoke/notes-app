@@ -1,4 +1,6 @@
 import 'package:notes/api/user/user_client.dart';
+import 'package:notes/model/order/order.dart';
+import 'package:notes/model/order/orders.dart';
 import 'package:notes/model/token.dart';
 import 'package:notes/model/user.dart';
 
@@ -32,4 +34,8 @@ class UserRepository {
   }
 
   Future<User> getUser() => _apiClient.getUser(token);
+
+  Future<Orders> getOrders(String authToken) async {}
+
+  Future<Order> createOrder(Order order) async {}
 }

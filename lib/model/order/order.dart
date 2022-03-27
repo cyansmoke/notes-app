@@ -8,17 +8,17 @@ enum TimePeriod { morning, day, night }
 
 @JsonSerializable(explicitToJson: true)
 class Order {
+  String id;
   final String address;
-  final LatLng latLng;
   final String phoneNumber;
-  final bool isDone;
-  final int clientId;
+  bool isDone;
+  int clientId;
   final createdTime;
   final supposedTimePeriod;
 
   Order(
+    this.id,
     this.address,
-    this.latLng,
     this.phoneNumber,
     this.isDone,
     this.clientId,

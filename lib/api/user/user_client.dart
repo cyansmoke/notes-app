@@ -20,9 +20,6 @@ abstract class UserApiClient {
   static const _SIGN_IN_ENDPOINT = 'auth/sign-in';
   static const _USER_ENDPOINT = 'api/user/';
 
-  static const _MAKE_ORDER_ENDPOINT = 'orders/make';
-  static const _GET_ORDERS_ENDPOINT = 'orders/get';
-
   static const _AUTH_HEADER = 'Authorization';
 
   @POST(_SIGN_IN_ENDPOINT)
@@ -33,13 +30,4 @@ abstract class UserApiClient {
 
   @GET(_USER_ENDPOINT)
   Future<User> getUser(@Header(_AUTH_HEADER) String authToken);
-
-  @GET(_GET_ORDERS_ENDPOINT)
-  Future<Orders> getOrders(@Header(_AUTH_HEADER) String authToken);
-
-  @GET(_MAKE_ORDER_ENDPOINT)
-  Future<Order> createOrder(
-    @Header(_AUTH_HEADER) String authToken,
-    @Path('id') int id,
-  );
 }

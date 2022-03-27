@@ -22,24 +22,33 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="62672aa1-0107-4668-8c3d-7aaf51d1acb8" name="Default Changelist" comment="started implement courier's api">
+    <list default="true" id="62672aa1-0107-4668-8c3d-7aaf51d1acb8" name="Default Changelist" comment="continuing migration to orders flow">
+      <change afterPath="$PROJECT_DIR$/lib/api/orders/orders_client.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/repo/orders_repo.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/android/app/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Runner/Info.plist" beforeDir="false" afterPath="$PROJECT_DIR$/ios/Runner/Info.plist" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/api/courier/courier_client.g.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/api/notes/notes_client.g.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/api/orders/order_client.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/api/user/mocked_user_client.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/api/user/mocked_user_client.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/api/user/user_client.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/api/user/user_client.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/api/user/user_client.g.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/api/user/user_client.g.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/api/user/user_client.g.dart" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/main.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/model/latlng.g.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/model/note.g.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/model/notes.g.dart" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/model/order/order.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/model/order/order.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/model/order/order.g.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/model/order/order.g.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/model/user.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/model/user.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/model/user.g.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/model/user.g.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/repo/notes_repo.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/repo/notes_repo.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/model/order/order.g.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/model/order/orders.g.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/model/token.g.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/model/user.g.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/repo/notes_repo.dart" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/repo/user_repo.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/repo/user_repo.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/ui/screens/auth/auth_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/ui/screens/auth/auth_screen.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/ui/screens/notes/bloc/notes_list_cubit.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/ui/screens/notes/bloc/notes_list_cubit.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/ui/screens/notes/bloc/notes_list_cubit.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/ui/screens/notes/bloc/orders_list_cubit.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/ui/screens/notes/bloc/notes_list_states.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/ui/screens/notes/bloc/orders_list_states.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/ui/screens/notes/notes_list_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/ui/screens/notes/notes_list_screen.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/ui/screens/user/bloc/user_cubit.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/ui/screens/user/bloc/user_cubit.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/ui/screens/user/user_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/ui/screens/user/user_screen.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -70,13 +79,11 @@
     </file-type-list>
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/lib/api/courier/courier_client.g.dart" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/lib/repo/notes_repo.dart" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/lib/repo/orders_repo.dart" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/lib/ui/screens/user/user_screen.dart" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/lib/model/order/orders.dart" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/lib/api/courier/courier_client.dart" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/lib/api/user/user_client.dart" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/lib/model/order/orders.g.dart" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/lib/repo/user_repo.dart" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/lib/model/order/order.dart" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/lib/ui/screens/user/bloc/user_cubit.dart" root0="FORCE_HIGHLIGHTING" />
@@ -273,7 +280,8 @@
     <MESSAGE value="started impl" />
     <MESSAGE value="started implement courier's api" />
     <MESSAGE value="added generated code" />
-    <option name="LAST_COMMIT_MESSAGE" value="added generated code" />
+    <MESSAGE value="continuing migration to orders flow" />
+    <option name="LAST_COMMIT_MESSAGE" value="continuing migration to orders flow" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

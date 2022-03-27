@@ -22,6 +22,9 @@ dependencies:
   #ui
   cupertino_icons: 1.0.0
 
+  #utils
+  uuid: 3.0.6
+
 dev_dependencies:
   build_runner: 1.11.1
 

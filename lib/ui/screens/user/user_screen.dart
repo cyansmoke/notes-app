@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:notes/repo/notes_repo.dart';
+import 'package:notes/repo/orders_repo.dart';
 import 'package:notes/repo/user_repo.dart';
 import 'package:notes/ui/screens/auth/auth_screen.dart';
 import 'package:notes/ui/screens/user/bloc/user_cubit.dart';
@@ -97,7 +97,7 @@ class _UserScreenState extends State<UserScreen> {
         },
         listener: (BuildContext context, state) {
           if (state is UserDeletedState) {
-            RepositoryProvider.of<OrdersRepository>(context).clearNotes();
+            RepositoryProvider.of<OrdersRepository>(context).clearOrders();
             Navigator.of(context).pop();
             Navigator.of(context)
                 .pushReplacement(MaterialPageRoute(builder: (newContext) => AuthScreen()));

@@ -2,11 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:notes/model/note.dart';
-import 'package:notes/repo/notes_repo.dart';
+import 'package:notes/model/order/order.dart';
+import 'package:notes/repo/orders_repo.dart';
 import 'package:notes/repo/user_repo.dart';
 import 'package:notes/ui/screens/auth/auth_screen.dart';
-import 'package:notes/ui/screens/notes/bloc/notes_list_cubit.dart';
-import 'package:notes/ui/screens/notes/bloc/notes_list_states.dart';
+import 'package:notes/ui/screens/notes/bloc/orders_list_cubit.dart';
+import 'package:notes/ui/screens/notes/bloc/orders_list_states.dart';
 import 'package:notes/ui/screens/user/user_screen.dart';
 import 'package:notes/ui/widgets/note_item.dart';
 
@@ -26,7 +27,7 @@ class _OrdersListState extends State<OrdersList> {
     super.initState();
     _searchTextController.addListener(() => setState(() {}));
     _notesListCubit = OrdersListCubit(RepositoryProvider.of<OrdersRepository>(context));
-    _notesListCubit.loadNotes();
+    _notesListCubit.loadOrders();
   }
 
   @override
@@ -35,7 +36,7 @@ class _OrdersListState extends State<OrdersList> {
       onTap: () => FocusScope.of(context).unfocus(),
       child: Scaffold(
         appBar: AppBar(
-          title: Text('Notes'),
+          title: Text('Orders'),
           centerTitle: true,
           actions: [
             PopupMenuButton<String>(
@@ -43,7 +44,7 @@ class _OrdersListState extends State<OrdersList> {
                 if (selected == 'LogOut') {
                   Navigator.of(context)
                       .pushReplacement(MaterialPageRoute(builder: (context) => AuthScreen()));
-                  RepositoryProvider.of<OrdersRepository>(context).clearNotes();
+                  RepositoryProvider.of<OrdersRepository>(context).clearOrders();
                 } else if (selected == 'User') {
                   Navigator.of(context).push(MaterialPageRoute(
                       builder: (context) => UserScreen(), fullscreenDialog: true));
@@ -58,10 +59,10 @@ class _OrdersListState extends State<OrdersList> {
             ),
           ],
         ),
-        body: BlocConsumer<OrdersListCubit, NotesListState>(
+        body: BlocConsumer<OrdersListCubit, OrdersListState>(
           cubit: _notesListCubit,
           listener: (newContext, state) {
-            if (state is NotesListFailedState) {
+            if (state is OrdersListFailedState) {
               showDialog(
                 context: context,
                 builder: (dialogContext) {
@@ -84,18 +85,18 @@ class _OrdersListState extends State<OrdersList> {
             }
           },
           builder: (newContext, state) {
-            if (state is NotesListLoadingState || state is NotesListInitialState) {
+            if (state is OrdersListLoadingState || state is OrdersListInitialState) {
               return Center(
                 child: CircularProgressIndicator(),
               );
-            } else if (state is NotesListFailedState) {
+            } else if (state is OrdersListFailedState) {
               return _buildTryAgain();
-            } else if (state is NotesListLoadedState) {
-              final filteredNotes = <Note>[]..addAll(state.notes);
+            } else if (state is OrdersListLoadedState) {
+              final filteredNotes = <Order>[]..addAll(state.notes);
               if (_searchTextController.text.isNotEmpty) {
-                filteredNotes.removeWhere((element) =>
-                    !(element.title.contains(_searchTextController.text) ||
-                        element.body.contains(_searchTextController.text)));
+                // filteredNotes.removeWhere((element) =>
+                // !(element.title.contains(_searchTextController.text) ||
+                //     element.body.contains(_searchTextController.text)));
               }
               return Column(
                 children: [
@@ -113,16 +114,16 @@ class _OrdersListState extends State<OrdersList> {
                     itemBuilder: (BuildContext itemContext, int index) {
                       final note = filteredNotes[index];
                       return NoteItem(
-                        title: note.title,
-                        date: note.dateCreated,
+                        // title: note.title,
+                        // date: note.dateCreated,
                         onTap: () => Navigator.of(context).push(
                           MaterialPageRoute(
                             builder: (context) => NoteScreen(
-                              note: note,
+                              // note: note,
                               onEditingFinished: (String body, String title) {
                                 Navigator.of(context).pop();
-                                final newNote = Note(body, title, note.id);
-                                _notesListCubit.editNote(newNote);
+                                // final newNote = Note(body, title, note.id);
+                                // _notesListCubit.editOrder(newNote);
                               },
                             ),
                             fullscreenDialog: true,
@@ -132,12 +133,12 @@ class _OrdersListState extends State<OrdersList> {
                           context: context,
                           builder: (dialogContext) => AlertDialog(
                             title: Text('Deleting'),
-                            content: Text('Do u want delete note ${note.title}?'),
+                            // content: Text('Do u want delete order ${order}?'),
                             actions: [
                               TextButton(
                                 onPressed: () {
                                   Navigator.of(dialogContext).pop();
-                                  _notesListCubit.deleteNote(note.id);
+                                  _notesListCubit.deleteOrder(note.id);
                                 },
                                 child: Text('Yes'),
                               ),
@@ -157,7 +158,7 @@ class _OrdersListState extends State<OrdersList> {
                   ),
                 ],
               );
-            } else if (state is NotesListEmptyState) {
+            } else if (state is OrdersListEmptyState) {
               return Center(
                 child: Text(
                   'List is empty\nLets create a first note!',
@@ -175,7 +176,7 @@ class _OrdersListState extends State<OrdersList> {
               builder: (context) => NoteScreen(
                 onEditingFinished: (String body, String title) {
                   Navigator.of(context).pop();
-                  _notesListCubit.addNote(title, body);
+                  // _notesListCubit.addOrder(title, body);
                 },
               ),
             ),
@@ -192,7 +193,7 @@ class _OrdersListState extends State<OrdersList> {
     return Center(
       child: ElevatedButton(
         onPressed: () {
-          _notesListCubit.loadNotes(true);
+          _notesListCubit.loadOrders(true);
         },
         child: Text('Reload'),
       ),
