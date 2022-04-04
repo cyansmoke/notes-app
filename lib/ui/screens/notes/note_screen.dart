@@ -2,21 +2,22 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:notes/model/note.dart';
+import 'package:notes/model/order/order.dart';
 
-class NoteScreen extends StatefulWidget {
-  final Note note;
+class OrderScreen extends StatefulWidget {
+  final Order order;
   final Function(String body, String title) onEditingFinished;
 
-  const NoteScreen({Key key, this.note, this.onEditingFinished}) : super(key: key);
+  const OrderScreen({Key key, this.order, this.onEditingFinished}) : super(key: key);
 
   @override
-  _NoteScreenState createState() => _NoteScreenState();
+  _OrderScreenState createState() => _OrderScreenState();
 }
 
-class _NoteScreenState extends State<NoteScreen> {
+class _OrderScreenState extends State<OrderScreen> {
   bool isEditing = false;
 
-  bool get isCreating => widget.note == null;
+  bool get isCreating => widget.order == null;
 
   TextEditingController _bodyTextEditingController = TextEditingController();
   TextEditingController _titleTextEditingController = TextEditingController();
@@ -29,8 +30,8 @@ class _NoteScreenState extends State<NoteScreen> {
           isCreating
               ? 'Creation'
               : isEditing
-                  ? 'Editing ${widget.note.title}'
-                  : widget.note.title,
+                  ? 'Editing ${widget.order.title}'
+                  : widget.order.title,
         ),
       ),
       body: isEditing || isCreating ? _buildEdittingBody() : _buildShowBody(),
@@ -41,8 +42,8 @@ class _NoteScreenState extends State<NoteScreen> {
                 _bodyTextEditingController.text, _titleTextEditingController.text)
             : () => setState(() {
                   isEditing = !isEditing;
-                  _bodyTextEditingController.text = widget.note.body;
-                  _titleTextEditingController.text = widget.note.title;
+                  _bodyTextEditingController.text = widget.order.description;
+                  _titleTextEditingController.text = widget.order.title;
                 }),
       ),
     );
@@ -85,7 +86,7 @@ class _NoteScreenState extends State<NoteScreen> {
             style: TextStyle(fontSize: 18),
           ),
           Text(
-            widget.note.title,
+            widget.order.title,
             style: TextStyle(fontSize: 16),
           ),
           SizedBox(height: 24),
@@ -94,7 +95,7 @@ class _NoteScreenState extends State<NoteScreen> {
             style: TextStyle(fontSize: 18),
           ),
           Text(
-            widget.note.body,
+            widget.order.description,
             style: TextStyle(fontSize: 16),
           ),
         ],

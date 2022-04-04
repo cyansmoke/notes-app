@@ -18,40 +18,40 @@ class MockedOrdersApiClient implements OrdersApiClient {
     return Orders(
       [
         Order(
-          Uuid().v4(),
-          user.address,
-          user.phoneNumber,
-          false,
-          user.id,
-          DateTime.now().subtract(Duration(
+          id: Uuid().v4(),
+          address: user.address,
+          phoneNumber: user.phoneNumber,
+          isDone: false,
+          clientId: user.id,
+          createdTime: DateTime.now().subtract(Duration(
             days: 4,
           )),
-          TimePeriod.night,
+          supposedTimePeriod: TimePeriod.night,
         ),
         Order(
-          Uuid().v4(),
-          user.address,
-          user.phoneNumber,
-          false,
-          user.id,
-          DateTime.now().subtract(Duration(
+          id: Uuid().v4(),
+          address: user.address,
+          phoneNumber: user.phoneNumber,
+          isDone: false,
+          clientId: user.id,
+          createdTime: DateTime.now().subtract(Duration(
             days: 6,
             hours: 3,
             minutes: 4,
           )),
-          TimePeriod.morning,
+          supposedTimePeriod: TimePeriod.morning,
         ),
         Order(
-          Uuid().v4(),
-          user.address,
-          user.phoneNumber,
-          true,
-          user.id,
-          DateTime.now().subtract(Duration(
+          id: Uuid().v4(),
+          address: user.address,
+          phoneNumber: user.phoneNumber,
+          isDone: true,
+          clientId: user.id,
+          createdTime: DateTime.now().subtract(Duration(
             days: 10,
             hours: 12,
           )),
-          TimePeriod.day,
+          supposedTimePeriod: TimePeriod.day,
         ),
       ],
     );

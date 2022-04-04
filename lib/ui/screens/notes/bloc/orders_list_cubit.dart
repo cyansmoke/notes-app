@@ -27,19 +27,24 @@ class OrdersListCubit extends Cubit<OrdersListState> {
     }
   }
 
-  void addOrder(String address, TimePeriod supposedTimePeriod) async {
+  void addOrder(
+    String address,
+    String title,
+    TimePeriod supposedTimePeriod,
+  ) async {
     emit(OrdersListLoadingState());
     try {
-      final newNote = Order(
-        null,
-        address,
-        null,
-        false,
-        null,
-        DateTime.now(),
-        supposedTimePeriod,
+      final newOrder = Order(
+        id: null,
+        address: address,
+        title: title,
+        phoneNumber: null,
+        isDone: false,
+        clientId: null,
+        createdTime: DateTime.now(),
+        supposedTimePeriod: supposedTimePeriod,
       );
-      await _repository.createOrder(newNote);
+      await _repository.createOrder(newOrder);
       loadOrders(true);
     } catch (e, stackTrace) {
       emit(OrdersListFailedState(e.toString()));

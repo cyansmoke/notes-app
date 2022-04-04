@@ -187,7 +187,7 @@
         <entry key="flutter">
           <value>
             <list>
-              <option value="$FLUTTER_HOME$/packages/flutter/lib" />
+              <option value="$USER_HOME$/fvm/versions/2.0.3/packages/flutter/lib" />
             </list>
           </value>
         </entry>
@@ -397,7 +397,7 @@
         <entry key="sky_engine">
           <value>
             <list>
-              <option value="$FLUTTER_HOME$/bin/cache/pkg/sky_engine/lib" />
+              <option value="$USER_HOME$/fvm/versions/2.0.3/bin/cache/pkg/sky_engine/lib" />
             </list>
           </value>
         </entry>
@@ -579,8 +579,8 @@
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dartlang.org/watcher-0.9.7+15/lib" />
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dartlang.org/web_socket_channel-1.2.0/lib" />
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dartlang.org/yaml-2.2.1/lib" />
-      <root url="file://$FLUTTER_HOME$/bin/cache/pkg/sky_engine/lib" />
-      <root url="file://$FLUTTER_HOME$/packages/flutter/lib" />
+      <root url="file://$USER_HOME$/fvm/versions/2.0.3/bin/cache/pkg/sky_engine/lib" />
+      <root url="file://$USER_HOME$/fvm/versions/2.0.3/packages/flutter/lib" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />

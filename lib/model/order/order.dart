@@ -1,22 +1,24 @@
 import 'package:json_annotation/json_annotation.dart';
 
-import '../latlng.dart';
-
 part 'order.g.dart';
 
 enum TimePeriod { morning, day, night }
 
 @JsonSerializable(explicitToJson: true)
 class Order {
+  final String title;
+  final String description;
   String id;
   final String address;
-  final String phoneNumber;
+  String phoneNumber;
   bool isDone;
   int clientId;
-  final createdTime;
-  final supposedTimePeriod;
+  final DateTime createdTime;
+  final TimePeriod supposedTimePeriod;
 
-  Order(
+  Order({
+    this.title,
+    this.description,
     this.id,
     this.address,
     this.phoneNumber,
@@ -24,7 +26,7 @@ class Order {
     this.clientId,
     this.createdTime,
     this.supposedTimePeriod,
-  );
+  });
 
   factory Order.fromJson(Map<String, dynamic> json) => _$OrderFromJson(json);
 

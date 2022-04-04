@@ -48,11 +48,11 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return RepositoryProvider<UserRepository>(
-      create: (context) => UserRepository(UserApiClient(dio)),
+      create: (context) => UserRepository(UserApiClient.mocked()),
       child: RepositoryProvider<OrdersRepository>(
         create: (context) => OrdersRepository(
           RepositoryProvider.of<UserRepository>(context),
-          OrdersApiClient(dio),
+          OrdersApiClient.mocked(),
         ),
         child: MaterialApp(
           theme: ThemeData(

@@ -10,6 +10,7 @@ import 'package:notes/ui/screens/notes/bloc/orders_list_cubit.dart';
 import 'package:notes/ui/screens/notes/bloc/orders_list_states.dart';
 import 'package:notes/ui/screens/user/user_screen.dart';
 import 'package:notes/ui/widgets/note_item.dart';
+import 'package:notes/ui/widgets/order_item.dart';
 
 import 'note_screen.dart';
 
@@ -113,16 +114,16 @@ class _OrdersListState extends State<OrdersList> {
                     shrinkWrap: true,
                     itemBuilder: (BuildContext itemContext, int index) {
                       final note = filteredNotes[index];
-                      return NoteItem(
-                        // title: note.title,
-                        // date: note.dateCreated,
+                      return OrderItem(
+                        title: note.address,
+                        date: note.createdTime.toIso8601String(),
                         onTap: () => Navigator.of(context).push(
                           MaterialPageRoute(
-                            builder: (context) => NoteScreen(
+                            builder: (context) => OrderScreen(
                               // note: note,
                               onEditingFinished: (String body, String title) {
                                 Navigator.of(context).pop();
-                                // final newNote = Note(body, title, note.id);
+                                // TODO(ilia): add fields to provide body, description, address and supposed time period
                                 // _notesListCubit.editOrder(newNote);
                               },
                             ),
@@ -173,7 +174,7 @@ class _OrdersListState extends State<OrdersList> {
         floatingActionButton: FloatingActionButton(
           onPressed: () => Navigator.of(context).push(
             MaterialPageRoute(
-              builder: (context) => NoteScreen(
+              builder: (context) => OrderScreen(
                 onEditingFinished: (String body, String title) {
                   Navigator.of(context).pop();
                   // _notesListCubit.addOrder(title, body);

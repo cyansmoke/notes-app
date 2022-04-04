@@ -23,32 +23,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="62672aa1-0107-4668-8c3d-7aaf51d1acb8" name="Default Changelist" comment="continuing migration to orders flow">
-      <change afterPath="$PROJECT_DIR$/lib/api/orders/orders_client.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/repo/orders_repo.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_SDK.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_SDK.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/api/courier/courier_client.g.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/api/notes/notes_client.g.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/api/orders/order_client.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/api/user/mocked_user_client.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/api/user/mocked_user_client.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/api/user/user_client.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/api/user/user_client.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/api/user/user_client.g.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ios/Flutter/AppFrameworkInfo.plist" beforeDir="false" afterPath="$PROJECT_DIR$/ios/Flutter/AppFrameworkInfo.plist" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ios/Runner.xcodeproj/project.pbxproj" beforeDir="false" afterPath="$PROJECT_DIR$/ios/Runner.xcodeproj/project.pbxproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ios/Runner.xcodeproj/xcshareddata/xcschemes/Runner.xcscheme" beforeDir="false" afterPath="$PROJECT_DIR$/ios/Runner.xcodeproj/xcshareddata/xcschemes/Runner.xcscheme" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/api/orders/mocked_orders_client.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/api/orders/mocked_orders_client.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/main.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/model/latlng.g.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/model/note.g.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/model/notes.g.dart" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/model/order/order.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/model/order/order.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/model/order/order.g.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/model/order/orders.g.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/model/token.g.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/model/user.g.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/repo/notes_repo.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/repo/user_repo.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/repo/user_repo.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/ui/screens/notes/bloc/notes_list_cubit.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/ui/screens/notes/bloc/orders_list_cubit.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/ui/screens/notes/bloc/notes_list_states.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/ui/screens/notes/bloc/orders_list_states.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/model/order/order.g.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/model/order/order.g.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/repo/orders_repo.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/repo/orders_repo.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/ui/screens/notes/bloc/orders_list_cubit.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/ui/screens/notes/bloc/orders_list_cubit.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/ui/screens/notes/note_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/ui/screens/notes/note_screen.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/ui/screens/notes/notes_list_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/ui/screens/notes/notes_list_screen.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/ui/screens/user/user_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/ui/screens/user/user_screen.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -106,7 +94,7 @@
     <property name="dart.analysis.tool.window.visible" value="false" />
     <property name="io.flutter.reload.alreadyRun" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/lib/ui/widgets" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="settings.editor.selected.configurable" value="dart.settings" />
     <property name="show.migrate.to.gradle.popup" value="false" />
   </component>
   <component name="RecentsManager">

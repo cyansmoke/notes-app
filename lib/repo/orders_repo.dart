@@ -39,6 +39,7 @@ class OrdersRepository {
     }
     order.clientId = user.id;
     order.id = Uuid().v4();
+    order.phoneNumber = user.phoneNumber;
     _sortOrders();
   }
 
