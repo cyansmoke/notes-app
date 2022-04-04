@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:notes/ui/screens/notes/note_screen.dart';
+import 'package:notes/ui/screens/notes/order_screen.dart';
 import 'package:intl/intl.dart';
 
 class OrderItem extends StatelessWidget {
   final String title;
   final String date;
+  final bool isDone;
   final Function onTap;
   final Function onLongTap;
 
@@ -15,6 +16,7 @@ class OrderItem extends StatelessWidget {
     @required this.date,
     @required this.onLongTap,
     @required this.onTap,
+    @required this.isDone,
   }) : super(key: key);
 
   @override
@@ -47,10 +49,29 @@ class OrderItem extends StatelessWidget {
                   height: 1.2,
                 ),
               ),
+              if (isDone) _buildCompletedRow() else _buildPendingRow(),
             ],
           ),
         ),
       ),
+    );
+  }
+
+  Widget _buildCompletedRow() {
+    return Row(
+      children: [
+        Text('Completed'),
+        Icon(Icons.done),
+      ],
+    );
+  }
+
+  Widget _buildPendingRow() {
+    return Row(
+      children: [
+        Text('Pending'),
+        Icon(Icons.pending_actions),
+      ],
     );
   }
 }

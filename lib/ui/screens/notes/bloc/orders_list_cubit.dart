@@ -1,7 +1,6 @@
 import 'dart:developer';
 
 import 'package:bloc/bloc.dart';
-import 'package:notes/model/note.dart';
 import 'package:notes/model/order/order.dart';
 import 'package:notes/repo/orders_repo.dart';
 import 'package:notes/ui/screens/notes/bloc/orders_list_states.dart';
@@ -30,6 +29,7 @@ class OrdersListCubit extends Cubit<OrdersListState> {
   void addOrder(
     String address,
     String title,
+    String description,
     TimePeriod supposedTimePeriod,
   ) async {
     emit(OrdersListLoadingState());

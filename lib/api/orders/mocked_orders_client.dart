@@ -18,6 +18,8 @@ class MockedOrdersApiClient implements OrdersApiClient {
     return Orders(
       [
         Order(
+          title: 'Order 1',
+          description: 'Bank Docs',
           id: Uuid().v4(),
           address: user.address,
           phoneNumber: user.phoneNumber,
@@ -29,6 +31,8 @@ class MockedOrdersApiClient implements OrdersApiClient {
           supposedTimePeriod: TimePeriod.night,
         ),
         Order(
+          title: 'Order 2',
+          description: 'Toys',
           id: Uuid().v4(),
           address: user.address,
           phoneNumber: user.phoneNumber,
@@ -42,6 +46,8 @@ class MockedOrdersApiClient implements OrdersApiClient {
           supposedTimePeriod: TimePeriod.morning,
         ),
         Order(
+          title: 'Order 3',
+          description: 'Important Docs Order',
           id: Uuid().v4(),
           address: user.address,
           phoneNumber: user.phoneNumber,

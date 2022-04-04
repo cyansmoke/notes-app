@@ -4,7 +4,7 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:notes/repo/user_repo.dart';
 import 'package:notes/ui/screens/auth/bloc/auth_cubit.dart';
-import 'package:notes/ui/screens/notes/notes_list_screen.dart';
+import 'package:notes/ui/screens/notes/orders_list_screen.dart';
 
 import 'bloc/auth_states.dart';
 

@@ -1,18 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:notes/model/note.dart';
 import 'package:notes/model/order/order.dart';
 import 'package:notes/repo/orders_repo.dart';
-import 'package:notes/repo/user_repo.dart';
 import 'package:notes/ui/screens/auth/auth_screen.dart';
 import 'package:notes/ui/screens/notes/bloc/orders_list_cubit.dart';
 import 'package:notes/ui/screens/notes/bloc/orders_list_states.dart';
 import 'package:notes/ui/screens/user/user_screen.dart';
-import 'package:notes/ui/widgets/note_item.dart';
 import 'package:notes/ui/widgets/order_item.dart';
 
-import 'note_screen.dart';
+import 'order_screen.dart';
 
 class OrdersList extends StatefulWidget {
   @override
@@ -20,15 +17,15 @@ class OrdersList extends StatefulWidget {
 }
 
 class _OrdersListState extends State<OrdersList> {
-  OrdersListCubit _notesListCubit;
+  OrdersListCubit _ordersListCubit;
   TextEditingController _searchTextController = TextEditingController();
 
   @override
   void initState() {
     super.initState();
     _searchTextController.addListener(() => setState(() {}));
-    _notesListCubit = OrdersListCubit(RepositoryProvider.of<OrdersRepository>(context));
-    _notesListCubit.loadOrders();
+    _ordersListCubit = OrdersListCubit(RepositoryProvider.of<OrdersRepository>(context));
+    _ordersListCubit.loadOrders();
   }
 
   @override
@@ -61,7 +58,7 @@ class _OrdersListState extends State<OrdersList> {
           ],
         ),
         body: BlocConsumer<OrdersListCubit, OrdersListState>(
-          cubit: _notesListCubit,
+          cubit: _ordersListCubit,
           listener: (newContext, state) {
             if (state is OrdersListFailedState) {
               showDialog(
@@ -93,11 +90,12 @@ class _OrdersListState extends State<OrdersList> {
             } else if (state is OrdersListFailedState) {
               return _buildTryAgain();
             } else if (state is OrdersListLoadedState) {
-              final filteredNotes = <Order>[]..addAll(state.notes);
+              final filteredOrders = <Order>[]..addAll(state.notes);
               if (_searchTextController.text.isNotEmpty) {
-                // filteredNotes.removeWhere((element) =>
-                // !(element.title.contains(_searchTextController.text) ||
-                //     element.body.contains(_searchTextController.text)));
+                filteredOrders.removeWhere((element) =>
+                    !(element.title.contains(_searchTextController.text) ||
+                        element.description.contains(_searchTextController.text)) ||
+                    element.address.contains(_searchTextController.text));
               }
               return Column(
                 children: [
@@ -113,18 +111,18 @@ class _OrdersListState extends State<OrdersList> {
                   ListView.separated(
                     shrinkWrap: true,
                     itemBuilder: (BuildContext itemContext, int index) {
-                      final note = filteredNotes[index];
+                      final order = filteredOrders[index];
                       return OrderItem(
-                        title: note.address,
-                        date: note.createdTime.toIso8601String(),
+                        title: order.address,
+                        date: order.createdTime.toIso8601String(),
+                        isDone: order.isDone,
                         onTap: () => Navigator.of(context).push(
                           MaterialPageRoute(
                             builder: (context) => OrderScreen(
-                              // note: note,
-                              onEditingFinished: (String body, String title) {
+                              order: order,
+                              onEditingFinished: (Order order) {
                                 Navigator.of(context).pop();
-                                // TODO(ilia): add fields to provide body, description, address and supposed time period
-                                // _notesListCubit.editOrder(newNote);
+                                _ordersListCubit.editOrder(order);
                               },
                             ),
                             fullscreenDialog: true,
@@ -139,7 +137,7 @@ class _OrdersListState extends State<OrdersList> {
                               TextButton(
                                 onPressed: () {
                                   Navigator.of(dialogContext).pop();
-                                  _notesListCubit.deleteOrder(note.id);
+                                  _ordersListCubit.deleteOrder(order.id);
                                 },
                                 child: Text('Yes'),
                               ),
@@ -154,7 +152,7 @@ class _OrdersListState extends State<OrdersList> {
                         ),
                       );
                     },
-                    itemCount: filteredNotes.length,
+                    itemCount: filteredOrders.length,
                     separatorBuilder: (BuildContext context, int index) => Divider(),
                   ),
                 ],
@@ -162,7 +160,7 @@ class _OrdersListState extends State<OrdersList> {
             } else if (state is OrdersListEmptyState) {
               return Center(
                 child: Text(
-                  'List is empty\nLets create a first note!',
+                  'List is empty\nLets create a first order!',
                   textAlign: TextAlign.center,
                 ),
               );
@@ -175,9 +173,10 @@ class _OrdersListState extends State<OrdersList> {
           onPressed: () => Navigator.of(context).push(
             MaterialPageRoute(
               builder: (context) => OrderScreen(
-                onEditingFinished: (String body, String title) {
+                onEditingFinished: (Order order) {
                   Navigator.of(context).pop();
-                  // _notesListCubit.addOrder(title, body);
+                  _ordersListCubit.addOrder(
+                      order.address, order.title, order.description, order.supposedTimePeriod);
                 },
               ),
             ),
@@ -194,7 +193,7 @@ class _OrdersListState extends State<OrdersList> {
     return Center(
       child: ElevatedButton(
         onPressed: () {
-          _notesListCubit.loadOrders(true);
+          _ordersListCubit.loadOrders(true);
         },
         child: Text('Reload'),
       ),
