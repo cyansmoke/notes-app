@@ -22,27 +22,20 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="62672aa1-0107-4668-8c3d-7aaf51d1acb8" name="Default Changelist" comment="fixed mocks + added ui to show order">
+    <list default="true" id="62672aa1-0107-4668-8c3d-7aaf51d1acb8" name="Default Changelist" comment="finished logic to create orders">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/api/notes/notes_client.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/api/notes/notes_client.g.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/api/orders/mocked_orders_client.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/api/orders/mocked_orders_client.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/model/note.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/model/note.g.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/model/notes.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/model/notes.g.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/ui/screens/auth/auth_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/ui/screens/auth/auth_screen.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/api/courier/courier_client.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/api/courier/courier_client.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/repo/orders_repo.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/repo/orders_repo.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/ui/screens/notes/bloc/orders_list_cubit.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/ui/screens/notes/bloc/orders_list_cubit.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/ui/screens/notes/note_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/ui/screens/notes/order_screen.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/ui/screens/notes/notes_list_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/ui/screens/notes/orders_list_screen.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/ui/widgets/note_item.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/ui/widgets/note_item.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/ui/widgets/order_item.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/ui/widgets/order_item.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/ui/screens/notes/order_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/ui/screens/notes/order_screen.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/ui/widgets/note_item.dart" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="DartProblemsView" scoped-analysis-mode="DartPackage" />
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
@@ -270,7 +263,8 @@
     <MESSAGE value="added generated code" />
     <MESSAGE value="continuing migration to orders flow" />
     <MESSAGE value="fixed mocks + added ui to show order" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixed mocks + added ui to show order" />
+    <MESSAGE value="finished logic to create orders" />
+    <option name="LAST_COMMIT_MESSAGE" value="finished logic to create orders" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

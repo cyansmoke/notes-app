@@ -42,6 +42,7 @@ class OrdersListCubit extends Cubit<OrdersListState> {
         isDone: false,
         clientId: null,
         createdTime: DateTime.now(),
+        description: description,
         supposedTimePeriod: supposedTimePeriod,
       );
       await _repository.createOrder(newOrder);

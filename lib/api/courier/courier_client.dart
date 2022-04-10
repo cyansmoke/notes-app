@@ -22,7 +22,7 @@ abstract class CourierApiClient {
   @GET(_ORDER_WITH_ID_ENDPOINT)
   Future<Order> markOrderAsDone(
     @Header(_AUTH_HEADER) String authToken,
-    @Path('id') int id,
+    @Path('id') String id,
   );
 
   @GET(_CREATE_ORDERS_ENDPOINT)

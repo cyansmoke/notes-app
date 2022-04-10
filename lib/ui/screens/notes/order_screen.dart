@@ -98,6 +98,10 @@ class _OrderScreenState extends State<OrderScreen> {
           SizedBox(
             height: 24,
           ),
+          Text(
+            'Address:',
+            style: TextStyle(fontSize: 18),
+          ),
           TextField(
             autofocus: false,
             controller: _addressTextEditingController,
@@ -127,6 +131,26 @@ class _OrderScreenState extends State<OrderScreen> {
           ),
           Text(
             widget.order.description,
+            style: TextStyle(fontSize: 16),
+          ),
+          SizedBox(
+            height: 24,
+          ),
+          Text(
+            'Supposed Time Period',
+            style: TextStyle(fontSize: 18),
+          ),
+          Text(
+            widget.order.supposedTimePeriod.toString().replaceFirst('TimePeriod.', ''),
+            style: TextStyle(fontSize: 16),
+          ),
+          SizedBox(height: 24),
+          Text(
+            'Address:',
+            style: TextStyle(fontSize: 18),
+          ),
+          Text(
+            widget.order.address,
             style: TextStyle(fontSize: 16),
           ),
         ],
