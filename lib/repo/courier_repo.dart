@@ -14,13 +14,12 @@ class CourierRepository {
       : _orders = _ordersRepository.getAllOrders();
 
   List<Order> getOrdersForToday() {
-    return _orders
-        .where((element) => compareDateTimeWithoutHours(element.createdTime, DateTime.now()));
+    _orders = _ordersRepository.getAllOrders();
+    return _orders.where((element) => element.createdTime.isToday()).toList();
   }
 
   List<Order> getOptimizedOrdersForToday() {
-    return _orders
-        .where((element) => compareDateTimeWithoutHours(element.createdTime, DateTime.now()));
+    return _orders.where((element) => element.createdTime.isToday()).toList();
   }
 
   Future<void> markOrderDone(Order order) async {

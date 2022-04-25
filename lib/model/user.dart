@@ -11,6 +11,11 @@ class User {
   String address;
   final String password;
 
+  User.courier()
+      : id = 0,
+        login = '',
+        password = '';
+
   User(
     this.id,
     this.login,

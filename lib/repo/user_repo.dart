@@ -16,6 +16,8 @@ class UserRepository {
   String _token;
   List<User> _loggedInUsers = [];
   User _currentUser;
+
+  User get currentUser => _currentUser;
   bool isCourier = false;
 
   Future<String> signInUser(String login, String password, [bool isCourier = false]) async {
@@ -36,6 +38,10 @@ class UserRepository {
   }
 
   Future<String> _authUser(User user, bool isSignUp) async {
+    _currentUser = User.courier();
+    if (isCourier) {
+      return 'courier';
+    }
     var existingUser =
         _loggedInUsers.firstWhere((element) => element.login == user.login, orElse: () => null);
     if (existingUser == null) {

@@ -22,15 +22,14 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="62672aa1-0107-4668-8c3d-7aaf51d1acb8" name="Default Changelist" comment="fixed bug with screen">
+    <list default="true" id="62672aa1-0107-4668-8c3d-7aaf51d1acb8" name="Default Changelist" comment="started debugging flow for multiple users">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/main.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/api/orders/mocked_orders_client.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/api/orders/mocked_orders_client.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/model/user.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/model/user.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/repo/courier_repo.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/repo/courier_repo.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/repo/orders_repo.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/repo/orders_repo.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/repo/user_repo.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/repo/user_repo.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/ui/screens/auth/auth_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/ui/screens/auth/auth_screen.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/ui/screens/auth/bloc/auth_cubit.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/ui/screens/auth/bloc/auth_cubit.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/ui/screens/notes/bloc/orders_list_cubit.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/ui/screens/notes/bloc/orders_list_cubit.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/ui/screens/notes/orders_list_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/ui/screens/notes/orders_list_screen.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/util/util.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/util/util.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -270,7 +269,8 @@
     <MESSAGE value="fixed mocks + added ui to show order" />
     <MESSAGE value="finished logic to create orders" />
     <MESSAGE value="fixed bug with screen" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixed bug with screen" />
+    <MESSAGE value="started debugging flow for multiple users" />
+    <option name="LAST_COMMIT_MESSAGE" value="started debugging flow for multiple users" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -285,11 +285,6 @@
           <line>64</line>
           <option name="timeStamp" value="3" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="Dart">
-          <url>file://$PROJECT_DIR$/lib/repo/user_repo.dart</url>
-          <line>52</line>
-          <option name="timeStamp" value="29" />
-        </line-breakpoint>
       </breakpoints>
       <default-breakpoints>
         <breakpoint suspend="THREAD" type="dart-exception" />
@@ -299,6 +294,7 @@
       <configuration name="FlutterRunConfigurationType">
         <watch expression="_notes" language="Dart" />
         <watch expression="user.id" language="Dart" />
+        <watch expression="_userOrdersMap[user.id]" language="Dart" />
       </configuration>
     </watches-manager>
   </component>

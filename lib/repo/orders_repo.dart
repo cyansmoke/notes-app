@@ -16,13 +16,10 @@ class OrdersRepository {
   final Map<int, List<Order>> _userOrdersMap = {};
 
   String get _token => _userRepository.token;
-  User user;
+  User get user => _userRepository.currentUser;
 
   Future<List<Order>> getOrders([forceLoad = false]) async {
     if (_orders == null || _orders.isEmpty) {
-      if (user == null) {
-        await _getUser();
-      }
       final userOrders = _userOrdersMap[user.id];
       if (userOrders?.isNotEmpty ?? false) {
         _orders = userOrders;
@@ -40,17 +37,16 @@ class OrdersRepository {
   Future<void> deleteOrder(String id) async {
     await _apiClient.deleteOrder(_token, id);
     _orders.removeWhere((element) => id == element.id);
+    _saveOrdersToUser();
+    _sortOrders();
   }
 
   Future<void> createOrder(Order order) async {
     await _apiClient.createOrder(_token, order.id, order);
-    _orders.add(order);
-    if (user == null) {
-      await _getUser();
-    }
     order.clientId = user.id;
     order.id = Uuid().v4();
     order.phoneNumber = user.phoneNumber;
+    _orders.add(order);
     _saveOrdersToUser();
     _sortOrders();
   }
@@ -78,17 +74,8 @@ class OrdersRepository {
     }
   }
 
-  Future<User> _getUser() async {
-    return user ??= await _userRepository.getUser();
-  }
-
-  Future<void> reassignUser() async {
-    user = await _userRepository.getUser();
-    _orders.clear();
-  }
-
   void _saveOrdersToUser() {
-    _userOrdersMap[user.id] = _orders;
+    _userOrdersMap[user.id] = List.from(_orders);
   }
 
   List<Order> getAllOrders() {
