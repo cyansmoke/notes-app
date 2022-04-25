@@ -52,7 +52,7 @@ class _AuthScreenState extends State<AuthScreen> {
         _authCubit.signInUser(loginTextController.text, passwordTextController.text);
         break;
       case LoginState.Courier:
-        _authCubit.signInCourier(loginTextController.text, passwordTextController.text);
+        _authCubit.signInCourier(loginTextController.text, passwordTextController.text, true);
         break;
     }
   }
@@ -157,12 +157,7 @@ class _AuthScreenState extends State<AuthScreen> {
                                   ),
                                 ),
                               ),
-                              onPressed: state is AuthLoadingState
-                                  ? null
-                                  : () {
-                                      _authCubit.signInUser(
-                                          loginTextController.text, passwordTextController.text);
-                                    },
+                              onPressed: state is AuthLoadingState ? null : () => executeAction(),
                             ),
                           );
                         },

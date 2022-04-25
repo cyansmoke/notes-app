@@ -19,9 +19,13 @@ class OrdersRepository {
   User user;
 
   Future<List<Order>> getOrders([forceLoad = false]) async {
-    if (forceLoad || _orders == null || _orders.isEmpty) {
+    if (_orders == null || _orders.isEmpty) {
       if (user == null) {
         await _getUser();
+      }
+      final userOrders = _userOrdersMap[user.id];
+      if (userOrders?.isNotEmpty ?? false) {
+        _orders = userOrders;
       }
       if (!(_apiClient is MockedOrdersApiClient) || _orders == null || _orders.isEmpty) {
         final orders = await _apiClient.getOrders(_token, user);
@@ -47,6 +51,7 @@ class OrdersRepository {
     order.clientId = user.id;
     order.id = Uuid().v4();
     order.phoneNumber = user.phoneNumber;
+    _saveOrdersToUser();
     _sortOrders();
   }
 

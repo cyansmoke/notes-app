@@ -24,7 +24,11 @@ class _OrdersListState extends State<OrdersList> {
   void initState() {
     super.initState();
     _searchTextController.addListener(() => setState(() {}));
-    _ordersListCubit = OrdersListCubit(RepositoryProvider.of<OrdersRepository>(context));
+    _ordersListCubit = OrdersListCubit(
+      RepositoryProvider.of(context),
+      RepositoryProvider.of(context),
+      RepositoryProvider.of(context),
+    );
     _ordersListCubit.loadOrders();
   }
 

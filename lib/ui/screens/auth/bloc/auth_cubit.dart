@@ -17,8 +17,8 @@ class AuthCubit extends Cubit<AuthState> {
     executeWithStatesUpdate(_repository.signUpUser(login, password, email));
   }
 
-  Future<void> signInCourier(String login, String password) async {
-    executeWithStatesUpdate(Future.value(0));
+  Future<void> signInCourier(String login, String password, [bool isCourier = false]) async {
+    executeWithStatesUpdate(_repository.signInUser(login, password, isCourier));
   }
 
   Future<void> executeWithStatesUpdate(Future functionToExecute) async {

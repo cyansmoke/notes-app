@@ -3,8 +3,10 @@ import 'dart:developer';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:notes/api/courier/courier_client.dart';
 import 'package:notes/api/orders/orders_client.dart';
 import 'package:notes/api/user/user_client.dart';
+import 'package:notes/repo/courier_repo.dart';
 import 'package:notes/repo/orders_repo.dart';
 import 'package:notes/repo/user_repo.dart';
 import 'package:notes/ui/screens/auth/auth_screen.dart';
@@ -54,11 +56,18 @@ class MyApp extends StatelessWidget {
           RepositoryProvider.of<UserRepository>(context),
           OrdersApiClient.mocked(),
         ),
-        child: MaterialApp(
-          theme: ThemeData(
-            primarySwatch: Colors.red,
+        child: RepositoryProvider(
+          create: (context) => CourierRepository(
+            RepositoryProvider.of(context),
+            RepositoryProvider.of(context),
+            CourierApiClient(dio),
           ),
-          home: AuthScreen(),
+          child: MaterialApp(
+            theme: ThemeData(
+              primarySwatch: Colors.red,
+            ),
+            home: AuthScreen(),
+          ),
         ),
       ),
     );

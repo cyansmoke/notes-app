@@ -2,18 +2,28 @@ import 'dart:developer';
 
 import 'package:bloc/bloc.dart';
 import 'package:notes/model/order/order.dart';
+import 'package:notes/repo/courier_repo.dart';
 import 'package:notes/repo/orders_repo.dart';
+import 'package:notes/repo/user_repo.dart';
 import 'package:notes/ui/screens/notes/bloc/orders_list_states.dart';
 
 class OrdersListCubit extends Cubit<OrdersListState> {
-  OrdersListCubit(this._repository) : super(OrdersListInitialState());
-
   final OrdersRepository _repository;
+  final CourierRepository _courierRepository;
+  final UserRepository _userRepository;
+
+  OrdersListCubit(this._repository, this._courierRepository, this._userRepository)
+      : super(OrdersListInitialState());
 
   void loadOrders([forceUpdate = false]) async {
     emit(OrdersListLoadingState());
     try {
-      final notes = await _repository.getOrders(forceUpdate);
+      List<Order> notes;
+      if (_userRepository.isCourier) {
+        notes = _courierRepository.getOrdersForToday();
+      } else {
+        notes = await _repository.getOrders(forceUpdate);
+      }
       if (notes?.isEmpty ?? true) {
         emit(OrdersListEmptyState());
       } else {
