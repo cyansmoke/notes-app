@@ -58,8 +58,8 @@ class OrdersRepository {
       _orders.remove(_order);
       _order.isDone = true;
       _orders.add(_order);
-    } catch (e) {
-      log(e);
+    } catch (e, stackTrace) {
+      log(e, stackTrace: stackTrace);
     }
   }
 

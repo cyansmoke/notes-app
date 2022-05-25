@@ -22,14 +22,12 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="62672aa1-0107-4668-8c3d-7aaf51d1acb8" name="Default Changelist" comment="started debugging flow for multiple users">
+    <list default="true" id="62672aa1-0107-4668-8c3d-7aaf51d1acb8" name="Default Changelist" comment="fixed view for couriers">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/api/orders/mocked_orders_client.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/api/orders/mocked_orders_client.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/model/user.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/model/user.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/repo/courier_repo.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/repo/courier_repo.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/repo/orders_repo.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/repo/orders_repo.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/repo/user_repo.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/repo/user_repo.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/util/util.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/util/util.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/ui/screens/notes/bloc/orders_list_cubit.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/ui/screens/notes/bloc/orders_list_cubit.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/ui/screens/notes/orders_list_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/ui/screens/notes/orders_list_screen.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,13 +59,21 @@
     </file-type-list>
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/lib/repo/orders_repo.dart" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/lib/ui/screens/user/user_screen.dart" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/lib/model/order/orders.dart" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/lib/api/courier/courier_client.dart" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/lib/api/user/user_client.dart" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/lib/repo/user_repo.dart" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/lib/main.dart" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/pubspec.yaml" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/lib/ui/screens/user/user_screen.dart" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/lib/api/orders/orders_client.dart" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/lib/model/user.dart" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/lib/ui/widgets/order_item.dart" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/lib/model/order/order.dart" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/lib/ui/screens/auth/bloc/auth_states.dart" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/lib/ui/screens/auth/auth_screen.dart" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/lib/ui/screens/auth/bloc/auth_cubit.dart" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/lib/repo/orders_repo.dart" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/lib/model/order/orders.dart" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/lib/api/user/user_client.dart" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/lib/ui/screens/user/bloc/user_cubit.dart" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
@@ -91,7 +97,7 @@
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
-    <property name="settings.editor.selected.configurable" value="dart.settings" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
     <property name="show.migrate.to.gradle.popup" value="false" />
   </component>
   <component name="RecentsManager">
@@ -107,14 +113,25 @@
     </key>
   </component>
   <component name="RunManager" selected="Flutter.main.dart">
+    <configuration name="diextra_algorythm.dart" type="DartCommandLineRunConfigurationType" factoryName="Dart Command Line Application" temporary="true" nameIsGenerated="true">
+      <option name="filePath" value="$PROJECT_DIR$/lib/util/diextra_algorythm.dart" />
+      <option name="workingDirectory" value="$PROJECT_DIR$" />
+      <method v="2" />
+    </configuration>
     <configuration name="main.dart" type="FlutterRunConfigurationType" factoryName="Flutter">
       <option name="filePath" value="$PROJECT_DIR$/lib/main.dart" />
       <method v="2" />
     </configuration>
     <list>
+      <item itemvalue="Dart Command Line App.diextra_algorythm.dart" />
       <item itemvalue="Flutter.main.dart" />
       <item itemvalue="Shell Script.build_runner build" />
     </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Dart Command Line App.diextra_algorythm.dart" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="project-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
@@ -270,7 +287,8 @@
     <MESSAGE value="finished logic to create orders" />
     <MESSAGE value="fixed bug with screen" />
     <MESSAGE value="started debugging flow for multiple users" />
-    <option name="LAST_COMMIT_MESSAGE" value="started debugging flow for multiple users" />
+    <MESSAGE value="fixed view for couriers" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed view for couriers" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

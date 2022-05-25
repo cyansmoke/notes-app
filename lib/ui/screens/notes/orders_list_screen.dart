@@ -98,8 +98,8 @@ class _OrdersListState extends State<OrdersList> {
               if (_searchTextController.text.isNotEmpty) {
                 filteredOrders.removeWhere((element) =>
                     !(element.title.contains(_searchTextController.text) ||
-                        element.description.contains(_searchTextController.text)) ||
-                    element.address.contains(_searchTextController.text));
+                        element.description.contains(_searchTextController.text) ||
+                        element.address.contains(_searchTextController.text)));
               }
               return Column(
                 children: [
@@ -116,8 +116,11 @@ class _OrdersListState extends State<OrdersList> {
                     shrinkWrap: true,
                     itemBuilder: (BuildContext itemContext, int index) {
                       final order = filteredOrders[index];
+                      final title = _ordersListCubit.isCourier
+                          ? "${order.address} from ${_ordersListCubit.getUserFromOrder(order.clientId).login}"
+                          : order.address;
                       return OrderItem(
-                        title: order.address,
+                        title: title,
                         date: order.createdTime.toIso8601String(),
                         isDone: order.isDone,
                         onTap: () => Navigator.of(context).push(
@@ -132,28 +135,9 @@ class _OrdersListState extends State<OrdersList> {
                             fullscreenDialog: true,
                           ),
                         ),
-                        onLongTap: () => showDialog(
-                          context: context,
-                          builder: (dialogContext) => AlertDialog(
-                            title: Text('Deleting'),
-                            // content: Text('Do u want delete order ${order}?'),
-                            actions: [
-                              TextButton(
-                                onPressed: () {
-                                  Navigator.of(dialogContext).pop();
-                                  _ordersListCubit.deleteOrder(order.id);
-                                },
-                                child: Text('Yes'),
-                              ),
-                              TextButton(
-                                onPressed: () {
-                                  Navigator.of(dialogContext).pop();
-                                },
-                                child: Text('No'),
-                              )
-                            ],
-                          ),
-                        ),
+                        onLongTap: () => _ordersListCubit.isCourier
+                            ? showDialogForMarkingDone(order)
+                            : showDialogForDeletion(order),
                       );
                     },
                     itemCount: filteredOrders.length,
@@ -189,6 +173,56 @@ class _OrdersListState extends State<OrdersList> {
             Icons.add,
           ),
         ),
+      ),
+    );
+  }
+
+  void showDialogForDeletion(Order order) async {
+    return showDialog(
+      context: context,
+      builder: (dialogContext) => AlertDialog(
+        title: Text('Deleting order from address ${order.address}'),
+        content: Text('Do u want delete order ${order.title}?'),
+        actions: [
+          TextButton(
+            onPressed: () {
+              Navigator.of(dialogContext).pop();
+              _ordersListCubit.deleteOrder(order.id);
+            },
+            child: Text('Yes'),
+          ),
+          TextButton(
+            onPressed: () {
+              Navigator.of(dialogContext).pop();
+            },
+            child: Text('No'),
+          )
+        ],
+      ),
+    );
+  }
+
+  void showDialogForMarkingDone(Order order) async {
+    return showDialog(
+      context: context,
+      builder: (dialogContext) => AlertDialog(
+        title: Text('Mark order from address ${order.address} as Done'),
+        content: Text('Do u want mark order ${order.title} as Done?'),
+        actions: [
+          TextButton(
+            onPressed: () {
+              Navigator.of(dialogContext).pop();
+              _ordersListCubit.markOrderAsDone(order);
+            },
+            child: Text('Yes'),
+          ),
+          TextButton(
+            onPressed: () {
+              Navigator.of(dialogContext).pop();
+            },
+            child: Text('No'),
+          )
+        ],
       ),
     );
   }

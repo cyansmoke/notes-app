@@ -69,6 +69,9 @@ class UserRepository {
 
   Future<User> getUser() async => _currentUser;
 
+  User getUserFromId(int clientId) =>
+      _loggedInUsers.firstWhere((element) => element.id == clientId);
+
   Future<Orders> getOrders(String authToken) async {}
 
   Future<Order> createOrder(Order order) async {}
